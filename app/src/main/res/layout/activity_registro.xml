@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_registror"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_registror"
+                android:textColor="#000000"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_blanco1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_blanco"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_nombrer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_nombrer"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_apellidosr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_apellidosr"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_dnir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_dnir"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_mailr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_mailr"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_contrasenar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_contrasenar"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_concontrasenar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_concontrasenar"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_nombreempresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_nombreempresar"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_telefonor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_telefonor"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_postalr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_postalr"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_direccionr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_direccionr"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#6C6A6C"
+                android:importantForAutofill="no" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_captchar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txt_captchar"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_numcaptchar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txt_numcaptchar"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_captchar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/et_captchar"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/but_logor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/but_logor"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/but_registror"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/but_registro"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

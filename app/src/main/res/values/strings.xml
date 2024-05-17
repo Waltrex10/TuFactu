@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TuFactu</string>
+    <string name="txt_blanco"></string>
+
+    <!-- main -->
+    <string name="et_dni">DNI</string>
+    <string name="et_contrasena">Contraseña</string>
+    <string name="check_recordar">Recuérdame</string>
+    <string name="but_iniciar_sesion">Iniciar sesión</string>
+    <string name="txt_registro">¿Es tu primera vez?</string>
+    <string name="but_registro">Regístrate</string>
+
+    <!-- registro -->
+    <string name="txt_registror"><u>Registro</u></string>
+    <string name="et_nombrer">Nombre</string>
+    <string name="et_apellidosr">Apellidos</string>
+    <string name="et_dnir">DNI</string>
+    <string name="et_mailr">Correo electrónico</string>
+    <string name="et_contrasenar">Contraseña</string>
+    <string name="et_concontrasenar">Confirmar contraseña</string>
+    <string name="et_nombreempresar">Nombre de la empresa</string>
+    <string name="et_telefonor">Número de teléfono</string>
+    <string name="et_postalr">Código postal</string>
+    <string name="et_direccionr">Dirección</string>
+    <string name="txt_captchar">Captcha</string>
+    <string name="txt_numcaptchar">1234</string>
+    <string name="et_captchar">Completar</string>
+    <string name="but_logor">Logo</string>
+
+</resources>
