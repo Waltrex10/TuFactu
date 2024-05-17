@@ -25,7 +25,7 @@ public class Clientes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clientes);
 
-        listaClientes = (RecyclerView) findViewById(R.id.listaClientes);
+        listaClientes = (RecyclerView) findViewById(R.id.listaInventario);
 
         DBClientes dbClientes = new DBClientes(Clientes.this);
         listaArrayClientes = new ArrayList<>();
@@ -33,6 +33,7 @@ public class Clientes extends AppCompatActivity {
         listaClientes.setAdapter(adapter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_person_add);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -45,12 +46,11 @@ public class Clientes extends AppCompatActivity {
                     startActivity(new Intent(Clientes.this, Presupuestos.class));
                     finish();
                     return true;
-                } else if (itemId == R.id.navigation) {
+                } else if (itemId == R.id.navigation_inventory) {
                     startActivity(new Intent(Clientes.this, Inventario.class));
                     finish();
                     return true;
                 } else if (itemId == R.id.navigation_person_add) {
-                    // No hacemos nada, ya estamos en la actividad actual
                     return true;
                 } else if (itemId == R.id.navigation_settings) {
                     startActivity(new Intent(Clientes.this, Ajustes.class));
@@ -65,7 +65,7 @@ public class Clientes extends AppCompatActivity {
 
     private static final int NAVIGATION_REQUEST_PAGE_ID = R.id.navigation_request_page;
     private static final int NAVIGATION_REQUEST_QUOTE_ID = R.id.navigation_request_quote;
-    private static final int NAVIGATION_INVENTORY_ID = R.id.navigation;
+    private static final int NAVIGATION_INVENTORY_ID = R.id.navigation_inventory;
     private static final int NAVIGATION_PERSON_ADD_ID = R.id.navigation_person_add;
     private static final int NAVIGATION_SETTINGS_ID = R.id.navigation_settings;
 }
