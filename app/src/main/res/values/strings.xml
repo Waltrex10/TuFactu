@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">TuFactu</string>
-    <string name="txt_blanco"></string>
+    <string name="tv_blanco"></string>
 
     <!-- main -->
     <string name="et_dni">DNI</string>
     <string name="et_contrasena">Contraseña</string>
     <string name="check_recordar">Recuérdame</string>
     <string name="but_iniciar_sesion">Iniciar sesión</string>
-    <string name="txt_registro">¿Es tu primera vez?</string>
+    <string name="tv_registro">¿Es tu primera vez?</string>
     <string name="but_registro">Regístrate</string>
 
     <!-- registro -->
-    <string name="txt_registror"><u>Registro</u></string>
+    <string name="tv_registror"><u>Registro</u></string>
     <string name="et_nombrer">Nombre</string>
     <string name="et_apellidosr">Apellidos</string>
     <string name="et_dnir">DNI</string>
@@ -22,9 +22,19 @@
     <string name="et_telefonor">Número de teléfono</string>
     <string name="et_postalr">Código postal</string>
     <string name="et_direccionr">Dirección</string>
-    <string name="txt_captchar">Captcha</string>
-    <string name="txt_numcaptchar">1234</string>
+    <string name="tv_captchar">Captcha</string>
+    <string name="tv_numcaptchar">1234</string>
     <string name="et_captchar">Completar</string>
     <string name="but_logor">Logo</string>
+
+    <!-- clientenuevo -->
+    <string name="tv_clienten"><u>Datos del cliente:</u></string>
+    <string name="et_nombrec">Nombre</string>
+    <string name="et_apellidosc">Apellidos</string>
+    <string name="et_dnic">DNI</string>
+    <string name="et_correoc">Correo electrónico</string>
+    <string name="et_direccionc">Dirección</string>
+    <string name="et_telefonoc">Número de teléfono</string>
+    <string name="but_guardarc">Registrar cliente</string>
 
 </resources>

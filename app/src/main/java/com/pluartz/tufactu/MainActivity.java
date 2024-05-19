@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
         DBUsuario dbUsuario = new DBUsuario(this);
 
         if (dbUsuario.verificarCredenciales(dni, contrasena)) {
+
+            SharedPreferences sharedPref = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("dniusuario", dni);
+            editor.apply();
             Intent facturas = new Intent(MainActivity.this, Facturas.class);
             startActivity(facturas);
             finish();

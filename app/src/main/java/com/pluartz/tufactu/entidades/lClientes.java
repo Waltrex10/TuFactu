@@ -1,6 +1,6 @@
 package com.pluartz.tufactu.entidades;
 
-public class LClientes {
+public class lClientes {
 
     private int id;
     private String nombre;
@@ -9,6 +9,7 @@ public class LClientes {
     private String correo;
     private String direccion;
     private String telefono;
+    private String dniusuario;
 
     public int getId() {
         return id;
@@ -64,5 +65,13 @@ public class LClientes {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getDniusuario() {
+        return dniusuario;
+    }
+
+    public void setDniusuario(String dniusuario) {
+        this.dniusuario = dniusuario;
     }
 }

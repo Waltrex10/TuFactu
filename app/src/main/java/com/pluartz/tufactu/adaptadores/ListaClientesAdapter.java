@@ -1,7 +1,6 @@
 package com.pluartz.tufactu.adaptadores;
 
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pluartz.tufactu.R;
-import com.pluartz.tufactu.entidades.LClientes;
+import com.pluartz.tufactu.entidades.lClientes;
 
 import java.util.ArrayList;
 
 
 public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdapter.clienteViewHolder> {
 
-    ArrayList<LClientes> listaClientes;
-    public ListaClientesAdapter(ArrayList<LClientes> listaClientes){
+    ArrayList<lClientes> listaClientes;
+    public ListaClientesAdapter(ArrayList<lClientes> listaClientes){
         this.listaClientes = listaClientes;
     }
 
@@ -31,12 +30,14 @@ public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdap
 
     @Override
     public void onBindViewHolder(@NonNull ListaClientesAdapter.clienteViewHolder holder, int position) {
-        holder.viewNombre.setText(listaClientes.get(position).getNombre());
-        holder.viewApellidos.setText(listaClientes.get(position).getApellidos());
-        holder.viewDni.setText(listaClientes.get(position).getDni());
-        holder.viewCorreo.setText(listaClientes.get(position).getCorreo());
-        holder.viewDireccion.setText(listaClientes.get(position).getDireccion());
-        holder.viewTelefono.setText(listaClientes.get(position).getTelefono());
+        lClientes cliente = listaClientes.get(position);
+        holder.tv_nombrec.setText(cliente.getNombre());
+        holder.tv_apellidosc.setText(cliente.getApellidos());
+        holder.tv_dnic.setText(cliente.getDni());
+        holder.tv_correoc.setText(cliente.getCorreo());
+        holder.tv_direccionc.setText(cliente.getDireccion());
+        holder.tv_telefonoc.setText(cliente.getTelefono());
+
     }
 
     @Override
@@ -44,17 +45,17 @@ public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdap
         return listaClientes.size();
     }
 
-    public class clienteViewHolder extends RecyclerView.ViewHolder {
+    public static class clienteViewHolder extends RecyclerView.ViewHolder {
 
-        TextView viewNombre, viewApellidos, viewDni, viewCorreo, viewDireccion, viewTelefono;
+        TextView tv_nombrec, tv_apellidosc, tv_dnic, tv_correoc, tv_direccionc, tv_telefonoc;
         public clienteViewHolder(@NonNull View itemView) {
             super(itemView);
-            viewNombre = itemView.findViewById(R.id.tv_nombrec);
-            viewApellidos = itemView.findViewById(R.id.tv_nombrec);
-            viewDni = itemView.findViewById(R.id.tv_nombrec);
-            viewCorreo = itemView.findViewById(R.id.tv_nombrec);
-            viewDireccion = itemView.findViewById(R.id.tv_nombrec);
-            viewTelefono = itemView.findViewById(R.id.tv_nombrec);
+            tv_nombrec = itemView.findViewById(R.id.tv_nombrec);
+            tv_apellidosc = itemView.findViewById(R.id.tv_apellidosc);
+            tv_dnic = itemView.findViewById(R.id.tv_dnic);
+            tv_correoc = itemView.findViewById(R.id.tv_correoc);
+            tv_direccionc = itemView.findViewById(R.id.tv_direccionc);
+            tv_telefonoc = itemView.findViewById(R.id.tv_telefonoc);
 
         }
     }

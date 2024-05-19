@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txt_main"
+        android:id="@+id/tv_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -35,12 +35,12 @@
         app:layout_constraintTop_toBottomOf="@+id/but_iniciar_sesion" />
 
     <TextView
-        android:id="@+id/txt_registror"
+        android:id="@+id/tv_registror"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="4dp"
-        android:text="@string/txt_registro"
+        android:text="@string/tv_registro"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/but_registro"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_main"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main"
         android:textColor="#000000"
         android:textColorHint="#6C6A6C"
         android:autofillHints="no" />

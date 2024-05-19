@@ -2,35 +2,47 @@ package com.pluartz.tufactu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pluartz.tufactu.adaptadores.ListaClientesAdapter;
 import com.pluartz.tufactu.db.DBClientes;
-import com.pluartz.tufactu.entidades.LClientes;
+import com.pluartz.tufactu.entidades.lClientes;
 
 import java.util.ArrayList;
 
 public class Clientes extends AppCompatActivity {
 
     RecyclerView listaClientes;
-    ArrayList<LClientes> listaArrayClientes;
+    ArrayList<lClientes> listaArrayClientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clientes);
 
-        listaClientes = (RecyclerView) findViewById(R.id.listaInventario);
+        listaClientes = (RecyclerView) findViewById(R.id.listaClientes);
+        listaClientes.setLayoutManager(new LinearLayoutManager(this));
 
         DBClientes dbClientes = new DBClientes(Clientes.this);
         listaArrayClientes = new ArrayList<>();
         ListaClientesAdapter adapter = new ListaClientesAdapter(dbClientes.mostrarClientes());
         listaClientes.setAdapter(adapter);
+
+        FloatingActionButton fab_anadir = findViewById(R.id.fab_anadir);
+        fab_anadir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Clientes.this, NuevoCliente.class));
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_person_add);

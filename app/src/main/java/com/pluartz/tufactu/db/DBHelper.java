@@ -39,13 +39,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 "correo TEXT NOT NULL," +
                 "direccion TEXT NOT NULL," +
                 "telefono TEXT NOT NULL," +
-                "idusuario INTEGER NOT NULL)");
+                "dniusuario INTEGER NOT NULL)");
 
         db.execSQL("CREATE TABLE " + TABLE_PRODUCTO_SERVICIO + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT NOT NULL," +
                 "precio TEXT NOT NULL," +
-                "idusuario INTEGER NOT NULL)");
+                "dniusuario INTEGER NOT NULL)");
 
     }
 
