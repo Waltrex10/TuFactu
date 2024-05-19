@@ -25,67 +25,79 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_nombrevc"
+        android:id="@+id/et_nombrenc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/et_nombrenc"
         android:inputType="text"
         android:textColor="#040404"
-        android:textSize="20sp" />
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_apellidosvc"
+        android:id="@+id/et_apellidosnc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/et_apellidosnc"
         android:inputType="text"
         android:textColor="#040404"
-        android:textSize="20sp" />
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_dnivc"
+        android:id="@+id/et_dninc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/et_dninc"
         android:inputType="text"
         android:textColor="#040404"
-        android:textSize="20sp" />
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_correovc"
+        android:id="@+id/et_correonc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/et_correonc"
         android:inputType="text"
         android:textColor="#040404"
-        android:textSize="20sp" />
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_direccionvc"
+        android:id="@+id/et_direccionnc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/et_direccionnc"
         android:inputType="text"
         android:textColor="#040404"
-        android:textSize="20sp" />
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_telefonovc"
+        android:id="@+id/et_telefononc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/et_telefononc"
         android:inputType="text"
         android:textColor="#040404"
-        android:textSize="20sp" />
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no"/>
 
     <Button
-        android:id="@+id/but_guardarvc"
+        android:id="@+id/but_guardarnc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/but_guardarnc"

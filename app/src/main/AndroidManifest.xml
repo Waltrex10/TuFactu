@@ -16,6 +16,12 @@
         android:theme="@style/Theme.TuFactu"
         tools:targetApi="31">
         <activity
+            android:name=".VerInventario"
+            android:exported="false" />
+        <activity
+            android:name=".NuevoInventario"
+            android:exported="false" />
+        <activity
             android:name=".EditarCliente"
             android:exported="false" />
         <activity

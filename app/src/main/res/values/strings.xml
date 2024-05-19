@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TuFactu</string>
     <string name="tv_blanco"></string>
-    <string name="et_blanco"></string>
+    <string name="et_blanco">....</string>
 
     <!-- main -->
     <string name="et_dni">DNI</string>
@@ -28,6 +28,9 @@
     <string name="et_captchar">Completar</string>
     <string name="but_logor">Logo</string>
 
+    <!-- cliente -->
+    <string name="fab_masc">Añadir cliente</string>
+
     <!-- nuevocliente -->
     <string name="tv_clientenc"><u>Datos del cliente:</u></string>
     <string name="et_nombrenc">Nombre</string>
@@ -49,6 +52,23 @@
     <string name="fab_editarvc">Editar cliente</string>
     <string name="fab_borrarvc">Borrar cliente</string>
     <string name="fab_guardarvc">Guardar cliente</string>
+
+    <!-- inventario -->
+    <string name="fab_masi">Añadir inventario</string>
+
+    <!-- nuevoinventario -->
+    <string name="tv_clienteni"><u>Datos del producto:</u></string>
+    <string name="et_nombreni">Nombre</string>
+    <string name="et_precioni">Precio</string>
+    <string name="but_guardarni">Guardar producto</string>
+
+    <!-- verinventario -->
+    <string name="tv_clientevi"><u>Datos del producto</u></string>
+    <string name="tv_nombrevi">Nombre:</string>
+    <string name="tv_preciovi">Precio:</string>
+    <string name="fab_editarvi">Editar producto</string>
+    <string name="fab_borrarvi">Borrar producto</string>
+    <string name="fab_guardarvi">Guardar producto</string>
 
 
 </resources>

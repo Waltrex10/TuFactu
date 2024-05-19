@@ -24,7 +24,7 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/transparent_background"
             app:menu="@menu/bottom_navigation_menu" >
 
@@ -42,11 +42,12 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_editarvc"
+        android:id="@+id/fab_masc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="20dp"
+        android:contentDescription="@string/fab_masc"
         android:src="@drawable/baseline_add_24"
         app:layout_anchor="@id/bottomAppBar"
         app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"

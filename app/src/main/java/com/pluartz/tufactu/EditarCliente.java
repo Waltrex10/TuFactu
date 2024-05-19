@@ -2,7 +2,6 @@ package com.pluartz.tufactu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,14 +23,14 @@ public class EditarCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vercliente);
+        setContentView(R.layout.activity_ver_cliente);
 
         et_nombre = (EditText) findViewById(R.id.et_nombrevc);
-        et_apellidos = (EditText) findViewById(R.id.et_apellidosvc);
-        et_dni = (EditText) findViewById(R.id.et_dnivc);
-        et_correo = (EditText) findViewById(R.id.et_correovc);
-        et_direccion = (EditText) findViewById(R.id.et_direccionvc);
-        et_telefono = (EditText) findViewById(R.id.et_telefonovc);
+        et_apellidos = (EditText) findViewById(R.id.et_apellidosnc);
+        et_dni = (EditText) findViewById(R.id.et_dninc);
+        et_correo = (EditText) findViewById(R.id.et_correonc);
+        et_direccion = (EditText) findViewById(R.id.et_direccionnc);
+        et_telefono = (EditText) findViewById(R.id.et_telefononc);
         fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvc);
         fab_editar.setVisibility(View.INVISIBLE);
         fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvc);
