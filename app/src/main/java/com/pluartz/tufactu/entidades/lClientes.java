@@ -1,6 +1,8 @@
 package com.pluartz.tufactu.entidades;
 
-public class lClientes {
+import com.pluartz.tufactu.Clientes;
+
+public class lClientes extends Clientes {
 
     private int id;
     private String nombre;

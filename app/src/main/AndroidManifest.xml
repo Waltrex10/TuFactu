@@ -16,6 +16,9 @@
         android:theme="@style/Theme.TuFactu"
         tools:targetApi="31">
         <activity
+            android:name=".EditarCliente"
+            android:exported="false" />
+        <activity
             android:name=".VerCliente"
             android:exported="false" />
         <activity

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TuFactu</string>
     <string name="tv_blanco"></string>
+    <string name="et_blanco"></string>
 
     <!-- main -->
     <string name="et_dni">DNI</string>
@@ -27,14 +28,27 @@
     <string name="et_captchar">Completar</string>
     <string name="but_logor">Logo</string>
 
-    <!-- clientenuevo -->
-    <string name="tv_clienten"><u>Datos del cliente:</u></string>
-    <string name="et_nombrec">Nombre</string>
-    <string name="et_apellidosc">Apellidos</string>
-    <string name="et_dnic">DNI</string>
-    <string name="et_correoc">Correo electrónico</string>
-    <string name="et_direccionc">Dirección</string>
-    <string name="et_telefonoc">Número de teléfono</string>
-    <string name="but_guardarc">Registrar cliente</string>
+    <!-- nuevocliente -->
+    <string name="tv_clientenc"><u>Datos del cliente:</u></string>
+    <string name="et_nombrenc">Nombre</string>
+    <string name="et_apellidosnc">Apellidos</string>
+    <string name="et_dninc">DNI</string>
+    <string name="et_correonc">Correo electrónico</string>
+    <string name="et_direccionnc">Dirección</string>
+    <string name="et_telefononc">Número de teléfono</string>
+    <string name="but_guardarnc">Registrar cliente</string>
+
+    <!-- vercliente -->
+    <string name="tv_clientevc"><u>Datos del cliente</u></string>
+    <string name="tv_nombrevc">Nombre:</string>
+    <string name="tv_apellidosvc">Apellidos:</string>
+    <string name="tv_dnivc">DNI:</string>
+    <string name="tv_correovc">Correo electrónico:</string>
+    <string name="tv_direccionvc">Dirección:</string>
+    <string name="tv_telefonovc">Número de teléfono:</string>
+    <string name="fab_editarvc">Editar cliente</string>
+    <string name="fab_borrarvc">Borrar cliente</string>
+    <string name="fab_guardarvc">Guardar cliente</string>
+
 
 </resources>

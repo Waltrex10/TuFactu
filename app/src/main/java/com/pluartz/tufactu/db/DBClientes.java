@@ -10,6 +10,7 @@ import com.pluartz.tufactu.entidades.lClientes;
 
 import java.util.ArrayList;
 
+//Metodos de la base de datos clientes
 public class DBClientes extends DBHelper {
     static Context context;
 
@@ -18,6 +19,7 @@ public class DBClientes extends DBHelper {
         DBClientes.context = context;
     }
 
+    //Metodo para insertar un cliente
     public long insertaCliente(String nombre, String apellidos, String dni, String correo,  String direccion, String telefono, String dniusuario){
 
         long id = 0;
@@ -43,6 +45,7 @@ public class DBClientes extends DBHelper {
 
     }
 
+    //Metodo para motrar todos los clientes
     public static ArrayList<lClientes> mostrarClientes() {
         ArrayList<lClientes> listaClientes = new ArrayList<>();
         lClientes cliente = null;
@@ -78,6 +81,74 @@ public class DBClientes extends DBHelper {
         }
 
         return listaClientes;
+    }
+
+    //Metodo para ver un cliente
+    public lClientes verCliente(int id) {
+
+        lClientes cliente = null;
+        Cursor cursorClientes;
+
+        DBHelper dbhelper = new DBHelper(context);
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+        cursorClientes = db.rawQuery("SELECT * FROM " + TABLE_CLIENTES + " WHERE id = " + id + " LIMIT 1 ", null);
+
+        if (cursorClientes.moveToFirst()) {
+            cliente = new lClientes();
+            cliente.setId(cursorClientes.getInt(0));
+            cliente.setNombre(cursorClientes.getString(1));
+            cliente.setApellidos(cursorClientes.getString(2));
+            cliente.setDni(cursorClientes.getString(3));
+            cliente.setCorreo(cursorClientes.getString(4));
+            cliente.setDireccion(cursorClientes.getString(5));
+            cliente.setTelefono(cursorClientes.getString(6));
+            cliente.setDniusuario(cursorClientes.getString(7));
+
+        }
+        cursorClientes.close();
+        return cliente;
+    }
+
+    //Metodo para editar un cliente
+    public boolean editarCliente(int id, String nombre, String apellidos, String dni, String correo,  String direccion, String telefono){
+
+        boolean correcto = false;
+
+        DBHelper dbhelper = new DBHelper(context);
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+
+        try {
+            db.execSQL("UPDATE " + TABLE_CLIENTES + " SET nombre = '"+nombre+"', apellidos = '"+apellidos+"', dni = '"+dni+"', correo = '"+correo+"', direccion = '"+direccion+"', telefono = '"+telefono+"' WHERE id='" + id + "'");
+            correcto = true;
+        } catch (Exception ex){
+            correcto = false;
+            ex.toString();
+        } finally {
+            db.close();
+        }
+        return correcto;
+
+    }
+
+    //Metodo para eliminar un cliente
+    public boolean eliminarCliente(int id){
+
+        boolean correcto = false;
+
+        DBHelper dbhelper = new DBHelper(context);
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+
+        try {
+            db.execSQL("DELETE FROM " + TABLE_CLIENTES + " WHERE id = '" + id + "'");
+            correcto = true;
+        } catch (Exception ex){
+            correcto = false;
+            ex.toString();
+        } finally {
+            db.close();
+        }
+        return correcto;
+
     }
 
 }

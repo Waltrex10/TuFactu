@@ -9,10 +9,10 @@
     tools:context=".NuevoCliente">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_clientenc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_clienten"
+        android:text="@string/tv_clientenc"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -25,70 +25,70 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_nombrec"
+        android:id="@+id/et_nombrevc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_nombrec"
+        android:hint="@string/et_nombrenc"
         android:inputType="text"
         android:textColor="#040404"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_apellidosc"
+        android:id="@+id/et_apellidosvc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_apellidosc"
+        android:hint="@string/et_apellidosnc"
         android:inputType="text"
         android:textColor="#040404"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_dnic"
+        android:id="@+id/et_dnivc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_dnic"
+        android:hint="@string/et_dninc"
         android:inputType="text"
         android:textColor="#040404"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_correoc"
+        android:id="@+id/et_correovc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_correoc"
+        android:hint="@string/et_correonc"
         android:inputType="text"
         android:textColor="#040404"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_direccionc"
+        android:id="@+id/et_direccionvc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_direccionc"
+        android:hint="@string/et_direccionnc"
         android:inputType="text"
         android:textColor="#040404"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_telefonoc"
+        android:id="@+id/et_telefonovc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_telefonoc"
+        android:hint="@string/et_telefononc"
         android:inputType="text"
         android:textColor="#040404"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/but_guardarc"
+        android:id="@+id/but_guardarvc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/but_guardarc"
+        android:text="@string/but_guardarnc"
         android:textColor="#000000"
         android:textSize="20sp" />
 </LinearLayout>

@@ -36,7 +36,7 @@ public class Clientes extends AppCompatActivity {
         ListaClientesAdapter adapter = new ListaClientesAdapter(dbClientes.mostrarClientes());
         listaClientes.setAdapter(adapter);
 
-        FloatingActionButton fab_anadir = findViewById(R.id.fab_anadir);
+        FloatingActionButton fab_anadir = findViewById(R.id.fab_editarvc);
         fab_anadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

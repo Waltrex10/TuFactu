@@ -1,135 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".VerCliente">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".NuevoCliente">
+        android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_clienten"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_blanco2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_blanco"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_clientenc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_clientevc"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/et_nombrec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_nombrec"
-            android:inputType="text"
-            android:textColor="#040404"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_blanco2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_blanco"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_nombrevc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_nombrevc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/et_apellidosc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_apellidosc"
-            android:inputType="text"
-            android:textColor="#040404"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_nombrevc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:ems="10"
+                android:hint="@string/et_blanco"
+                android:inputType="text"
+                android:labelFor="@+id/et_nombrevc"
+                android:textColor="#040404"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_apellidosvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_apellidosvc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/et_dnic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_dnic"
-            android:inputType="text"
-            android:textColor="#040404"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_apellidosvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:ems="10"
+                android:hint="@string/et_blanco"
+                android:inputType="text"
+                android:labelFor="@+id/et_apellidosvc"
+                android:textColor="#040404"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_dnivc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_dnivc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/et_correoc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_correoc"
-            android:inputType="text"
-            android:textColor="#040404"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_dnivc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:ems="10"
+                android:hint="@string/et_blanco"
+                android:inputType="text"
+                android:labelFor="@+id/et_dnivc"
+                android:textColor="#040404"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_correovc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_correovc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/et_direccionc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_direccionc"
-            android:inputType="text"
-            android:textColor="#040404"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_correovc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:ems="10"
+                android:hint="@string/et_blanco"
+                android:inputType="text"
+                android:labelFor="@+id/et_correovc"
+                android:textColor="#040404"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_direccionvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_direccionvc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/et_telefonoc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_telefonoc"
-            android:inputType="text"
-            android:textColor="#040404"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_direccionvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:ems="10"
+                android:hint="@string/et_blanco"
+                android:inputType="text"
+                android:labelFor="@+id/et_direccionvc"
+                android:textColor="#040404"
+                android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/but_guardarc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/but_guardarc"
-            android:textColor="#000000"
-            android:textSize="20sp" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_telefonovc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_telefonovc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_telefonovc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="no"
+                android:ems="10"
+                android:hint="@string/et_blanco"
+                android:inputType="text"
+                android:labelFor="@+id/et_telefonovc"
+                android:textColor="#040404"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_blanco3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_blanco"
+                android:textSize="20sp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_guardarvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="end"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/fab_guardarvc"
+                android:src="@drawable/baseline_save_24"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_editarvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="end"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/fab_editarvc"
+                android:src="@drawable/baseline_edit_24"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_borrarvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="end"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/fab_borrarvc"
+                android:src="@drawable/baseline_restore_from_trash_24"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
