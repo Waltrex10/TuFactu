@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pluartz.tufactu.R;
 import com.pluartz.tufactu.VerCliente;
-import com.pluartz.tufactu.entidades.lClientes;
+import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
 
 
 public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdapter.clienteViewHolder> {
 
-    static ArrayList<lClientes> listaClientes;
-    public ListaClientesAdapter(ArrayList<lClientes> listaClientes){
-        this.listaClientes = listaClientes;
+    static ArrayList<LClientes> listaClientes;
+    public ListaClientesAdapter(ArrayList<LClientes> listaClientes){
+        ListaClientesAdapter.listaClientes = listaClientes;
     }
 
     @NonNull
@@ -33,7 +33,7 @@ public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdap
 
     @Override
     public void onBindViewHolder(@NonNull ListaClientesAdapter.clienteViewHolder holder, int position) {
-        lClientes cliente = listaClientes.get(position);
+        LClientes cliente = listaClientes.get(position);
         holder.tv_nombrec.setText(cliente.getNombre());
         holder.tv_apellidosc.setText(cliente.getApellidos());
         holder.tv_dnic.setText(cliente.getDni());
@@ -60,14 +60,11 @@ public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdap
             tv_direccionc = itemView.findViewById(R.id.tv_direccionc);
             tv_telefonoc = itemView.findViewById(R.id.tv_telefonoc);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Context context = view.getContext();
-                    Intent intent = new Intent(context, VerCliente.class);
-                    intent.putExtra("ID", listaClientes.get(getAdapterPosition()).getId());
-                    context.startActivity(intent);
-                }
+            itemView.setOnClickListener(view -> {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, VerCliente.class);
+                intent.putExtra("ID", listaClientes.get(getAdapterPosition()).getId());
+                context.startActivity(intent);
             });
 
         }

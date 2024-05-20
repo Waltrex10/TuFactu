@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pluartz.tufactu.db.DBClientes;
-import com.pluartz.tufactu.entidades.lClientes;
+import com.pluartz.tufactu.entidades.LClientes;
 
 public class EditarCliente extends AppCompatActivity {
 
     private EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
     private FloatingActionButton fab_editar, fab_borrar, fab_guardar;
     boolean correcto = false;
-    lClientes cliente;
+    LClientes cliente;
     int id = 0;
 
     @Override

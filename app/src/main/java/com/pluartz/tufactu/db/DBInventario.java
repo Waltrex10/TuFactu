@@ -4,10 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-public class DBProducto_Servicio extends DBHelper {
+public class DBInventario extends DBHelper {
     Context context;
 
-    public DBProducto_Servicio(Context context) {
+    public DBInventario(Context context) {
         super(context);
         this.context = context;
     }
@@ -24,7 +24,7 @@ public class DBProducto_Servicio extends DBHelper {
             values.put("nombre", nombre);
             values.put("apellidos", precio);
 
-            id = db.insert(TABLE_PRODUCTO_SERVICIO, null, values);
+            id = db.insert(TABLE_INVENTARIO, null, values);
         } catch (Exception ex){
             ex.toString();
         }

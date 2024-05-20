@@ -8,20 +8,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pluartz.tufactu.adaptadores.ListaClientesAdapter;
 import com.pluartz.tufactu.db.DBClientes;
-import com.pluartz.tufactu.entidades.lClientes;
+import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
 
 public class Clientes extends AppCompatActivity {
 
     RecyclerView listaClientes;
-    ArrayList<lClientes> listaArrayClientes;
+    ArrayList<LClientes> listaArrayClientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +35,8 @@ public class Clientes extends AppCompatActivity {
         ListaClientesAdapter adapter = new ListaClientesAdapter(dbClientes.mostrarClientes());
         listaClientes.setAdapter(adapter);
 
-        FloatingActionButton fab_anadir = findViewById(R.id.fab_editarvc);
-        fab_anadir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Clientes.this, NuevoCliente.class));
-            }
-        });
+        FloatingActionButton fab_anadir = findViewById(R.id.fab_masc);
+        fab_anadir.setOnClickListener(v -> startActivity(new Intent(Clientes.this, NuevoCliente.class)));
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_person_add);

@@ -24,7 +24,7 @@
             android:textSize="20sp" />
 
         <View
-            android:id="@+id/divider"
+            android:id="@+id/divideri"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="?android:attr/listDivider" />

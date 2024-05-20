@@ -12,14 +12,14 @@ import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pluartz.tufactu.db.DBClientes;
-import com.pluartz.tufactu.entidades.lClientes;
+import com.pluartz.tufactu.entidades.LClientes;
 
 //Para ver, editar y eliminar clientes
 public class VerCliente extends AppCompatActivity {
 
     private EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
     private FloatingActionButton fab_editar, fab_borrar, fab_guardar;
-    lClientes cliente;
+    LClientes cliente;
     int id = 0;
 
     @Override

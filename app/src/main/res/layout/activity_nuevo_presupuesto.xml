@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NuevoInventario">
+    tools:context=".NuevoPresupuesto">
 
     <TextView
-        android:id="@+id/tv_inventarioni"
+        android:id="@+id/tv_facturanp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_inventarioni"
+        android:text="@string/tv_facturanp"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -24,11 +24,11 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_nombreni"
+        android:id="@+id/et_numeronp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_nombreni"
+        android:hint="@string/et_numeronp"
         android:inputType="text"
         android:textColor="#040404"
         android:textColorHint="#6C6A6C"
@@ -36,11 +36,23 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_apellidosni"
+        android:id="@+id/et_fechanp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/et_precioni"
+        android:hint="@string/et_fechanp"
+        android:inputType="text"
+        android:textColor="#040404"
+        android:textColorHint="#6C6A6C"
+        android:textSize="20sp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_descripcionnp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/et_descripcionnp"
         android:inputType="text"
         android:textColor="#040404"
         android:textColorHint="#6C6A6C"
@@ -48,10 +60,10 @@
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/but_guardarni"
+        android:id="@+id/but_guardarnp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/but_guardarni"
+        android:text="@string/but_guardarnp"
         android:textColor="#000000"
         android:textSize="20sp" />
 </LinearLayout>

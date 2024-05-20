@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/but_iniciar_sesion" />
 
     <TextView
-        android:id="@+id/tv_registror"
+        android:id="@+id/tv_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"

@@ -16,6 +16,21 @@
         android:theme="@style/Theme.TuFactu"
         tools:targetApi="31">
         <activity
+            android:name=".NuevoPresupuesto"
+            android:exported="false" />
+        <activity
+            android:name=".NuevaFactura"
+            android:exported="false" />
+        <activity
+            android:name=".VerPresupuesto"
+            android:exported="false" />
+        <activity
+            android:name=".VerFactura"
+            android:exported="false" />
+        <activity
+            android:name=".AjustesUsuario"
+            android:exported="false" />
+        <activity
             android:name=".VerInventario"
             android:exported="false" />
         <activity

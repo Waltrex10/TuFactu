@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TuFactu</string>
+    <string name="tv_blanco"></string>
+    <string name="et_blanco">....</string>
+
+    <!-- main -->
+    <string name="et_dni">ID</string>
+    <string name="et_contrasena">Password</string>
+    <string name="check_recordar">Remember me</string>
+    <string name="but_iniciar_sesion">Log in</string>
+    <string name="tv_registro">It's your first time?</string>
+    <string name="but_registro">Sign up</string>
+
+    <!-- registro -->
+    <string name="tv_registror"><u>Record</u></string>
+    <string name="et_nombrer">Name</string>
+    <string name="et_apellidosr">Surnames</string>
+    <string name="et_dnir">ID</string>
+    <string name="et_correor">Email</string>
+    <string name="et_contrasenar">Password</string>
+    <string name="et_concontrasenar">Confirm Password</string>
+    <string name="et_nombreempresar">Company name</string>
+    <string name="et_telefonor">Phone number</string>
+    <string name="et_postalr">Postal Code</string>
+    <string name="et_direccionr">Address</string>
+    <string name="tv_captchar">Captcha</string>
+    <string name="tv_numcaptchar">1234</string>
+    <string name="et_captchar">To complete</string>
+    <string name="but_logor">Logo</string>
+
+    <!-- cliente -->
+    <string name="fab_masc">Add client</string>
+
+    <!-- nuevocliente -->
+    <string name="tv_clientenc"><u>Client data:</u></string>
+    <string name="et_nombrenc">Name</string>
+    <string name="et_apellidosnc">Surnames</string>
+    <string name="et_dninc">ID</string>
+    <string name="et_correonc">Email</string>
+    <string name="et_direccionnc">Address</string>
+    <string name="et_telefononc">Phone number</string>
+    <string name="but_guardarnc">Register client</string>
+
+    <!-- vercliente -->
+    <string name="tv_clientevc"><u>Client data</u></string>
+    <string name="tv_nombrevc">Name:</string>
+    <string name="tv_apellidosvc">Surnames:</string>
+    <string name="tv_dnivc">ID:</string>
+    <string name="tv_correovc">Email:</string>
+    <string name="tv_direccionvc">Address:</string>
+    <string name="tv_telefonovc">Phone number:</string>
+    <string name="fab_editarvc">Edit client</string>
+    <string name="fab_borrarvc">Delete client</string>
+    <string name="fab_guardarvc">Save client</string>
+
+    <!-- inventario -->
+    <string name="fab_masi">Add inventory</string>
+
+    <!-- nuevoinventario -->
+    <string name="tv_inventarioni"><u>Product dates:</u></string>
+    <string name="et_nombreni">Name</string>
+    <string name="et_precioni">Price</string>
+    <string name="but_guardarni">Save product</string>
+
+    <!-- verinventario -->
+    <string name="tv_inventariovi"><u>Product dates</u></string>
+    <string name="tv_nombrevi">Name:</string>
+    <string name="tv_preciovi">Price:</string>
+    <string name="fab_editarvi">Edit product</string>
+    <string name="fab_borrarvi">Delete product</string>
+    <string name="fab_guardarvi">Save product</string>
+
+    <!-- ajustes -->
+    <string name="but_ajustes">User settings</string>
+    <string name="but_cerrarsesion">Sign off</string>
+
+    <!-- ajustesusuario -->
+    <string name="tv_ajustesa"><u>User settings</u></string>
+    <string name="et_nombrea">Name</string>
+    <string name="et_apellidosa">Surnames</string>
+    <string name="et_correoa">Email</string>
+    <string name="et_contrasenaa">Password</string>
+    <string name="et_concontrasenaa">Confirm Password</string>
+    <string name="et_nombreempresaa">Company name</string>
+    <string name="et_telefonoa">Phone number</string>
+    <string name="et_postala">Postal Codec</string>
+    <string name="et_direcciona">Address</string>
+    <string name="but_logoa">Logo</string>
+    <string name="but_guardara">Save</string>
+
+    <!-- facturas -->
+    <string name="fab_masf">Add invoices</string>
+
+    <!-- presupuestos -->
+    <string name="fab_masp">Add quotes</string>
+
+</resources>

@@ -23,13 +23,13 @@ public class NuevoCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_cliente);
 
-        et_nombre = (EditText) findViewById(R.id.et_nombrevc);
+        et_nombre = (EditText) findViewById(R.id.et_nombrenc);
         et_apellidos = (EditText) findViewById(R.id.et_apellidosnc);
         et_dni = (EditText) findViewById(R.id.et_dninc);
         et_correo = (EditText) findViewById(R.id.et_correonc);
         et_direccion = (EditText) findViewById(R.id.et_direccionnc);
         et_telefono = (EditText) findViewById(R.id.et_telefononc);
-        but_guardar = (Button) findViewById(R.id.but_guardarvc);
+        but_guardar = (Button) findViewById(R.id.but_guardarnc);
 
         SharedPreferences sharedPref = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
         final String dni = sharedPref.getString("dniusuario", String.valueOf(-1));

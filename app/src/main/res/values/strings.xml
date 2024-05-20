@@ -16,7 +16,7 @@
     <string name="et_nombrer">Nombre</string>
     <string name="et_apellidosr">Apellidos</string>
     <string name="et_dnir">DNI</string>
-    <string name="et_mailr">Correo electrónico</string>
+    <string name="et_correor">Correo electrónico</string>
     <string name="et_contrasenar">Contraseña</string>
     <string name="et_concontrasenar">Confirmar contraseña</string>
     <string name="et_nombreempresar">Nombre de la empresa</string>
@@ -57,18 +57,42 @@
     <string name="fab_masi">Añadir inventario</string>
 
     <!-- nuevoinventario -->
-    <string name="tv_clienteni"><u>Datos del producto:</u></string>
+    <string name="tv_inventarioni"><u>Datos del producto:</u></string>
     <string name="et_nombreni">Nombre</string>
     <string name="et_precioni">Precio</string>
     <string name="but_guardarni">Guardar producto</string>
 
     <!-- verinventario -->
-    <string name="tv_clientevi"><u>Datos del producto</u></string>
+    <string name="tv_inventariovi"><u>Datos del producto</u></string>
     <string name="tv_nombrevi">Nombre:</string>
     <string name="tv_preciovi">Precio:</string>
     <string name="fab_editarvi">Editar producto</string>
     <string name="fab_borrarvi">Borrar producto</string>
     <string name="fab_guardarvi">Guardar producto</string>
+
+    <!-- ajustes -->
+    <string name="but_ajustes">Ajustes de usuario</string>
+    <string name="but_cerrarsesion">Cerrar sesión</string>
+
+    <!-- ajustesusuario -->
+    <string name="tv_ajustesa"><u>Ajustes de usuario</u></string>
+    <string name="et_nombrea">Nombre</string>
+    <string name="et_apellidosa">Apellidos</string>
+    <string name="et_correoa">Correo electrónico</string>
+    <string name="et_contrasenaa">Contraseña</string>
+    <string name="et_concontrasenaa">Confirmar contraseña</string>
+    <string name="et_nombreempresaa">Nombre de la empresa</string>
+    <string name="et_telefonoa">Número de teléfono</string>
+    <string name="et_postala">Código postal</string>
+    <string name="et_direcciona">Dirección</string>
+    <string name="but_logoa">Logo</string>
+    <string name="but_guardara">Guardar</string>
+
+    <!-- facturas -->
+    <string name="fab_masf">Añadir facturas</string>
+
+    <!-- presupuestos -->
+    <string name="fab_masp">Añadir presupuestos</string>
 
 
 </resources>

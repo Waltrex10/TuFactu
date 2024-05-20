@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.pluartz.tufactu.entidades.lClientes;
+import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
 
@@ -46,9 +46,9 @@ public class DBClientes extends DBHelper {
     }
 
     //Metodo para motrar todos los clientes
-    public static ArrayList<lClientes> mostrarClientes() {
-        ArrayList<lClientes> listaClientes = new ArrayList<>();
-        lClientes cliente = null;
+    public static ArrayList<LClientes> mostrarClientes() {
+        ArrayList<LClientes> listaClientes = new ArrayList<>();
+        LClientes cliente = null;
         Cursor cursorClientes = null;
 
         try {
@@ -58,7 +58,7 @@ public class DBClientes extends DBHelper {
 
             if (cursorClientes.moveToFirst()) {
                 do {
-                    cliente = new lClientes();
+                    cliente = new LClientes();
                     cliente.setId(cursorClientes.getInt(0));
                     cliente.setNombre(cursorClientes.getString(1));
                     cliente.setApellidos(cursorClientes.getString(2));
@@ -84,9 +84,9 @@ public class DBClientes extends DBHelper {
     }
 
     //Metodo para ver un cliente
-    public lClientes verCliente(int id) {
+    public LClientes verCliente(int id) {
 
-        lClientes cliente = null;
+        LClientes cliente = null;
         Cursor cursorClientes;
 
         DBHelper dbhelper = new DBHelper(context);
@@ -94,7 +94,7 @@ public class DBClientes extends DBHelper {
         cursorClientes = db.rawQuery("SELECT * FROM " + TABLE_CLIENTES + " WHERE id = " + id + " LIMIT 1 ", null);
 
         if (cursorClientes.moveToFirst()) {
-            cliente = new lClientes();
+            cliente = new LClientes();
             cliente.setId(cursorClientes.getInt(0));
             cliente.setNombre(cursorClientes.getString(1));
             cliente.setApellidos(cursorClientes.getString(2));

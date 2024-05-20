@@ -2,7 +2,7 @@ package com.pluartz.tufactu.entidades;
 
 import com.pluartz.tufactu.Clientes;
 
-public class lClientes extends Clientes {
+public class LClientes extends Clientes {
 
     private int id;
     private String nombre;

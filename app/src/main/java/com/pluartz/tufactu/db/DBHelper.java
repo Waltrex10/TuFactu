@@ -4,13 +4,16 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+//Creación de tablas
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NOMBRE = "lista.db";
     public static final String TABLE_USUARIOS = "usuarios";
     public static final String TABLE_CLIENTES = "clientes";
-    public static final String TABLE_PRODUCTO_SERVICIO = "producto_servicio";
+    public static final String TABLE_INVENTARIO = "inventario";
+    public static final String TABLE_FACTURAS = "facturas";
+    public static final String TABLE_PRESUPUESTO = "presupuestos";
     public DBHelper(Context context) {
         super(context, DATABASE_NOMBRE, null, DATABASE_VERSION);
     }
@@ -39,13 +42,28 @@ public class DBHelper extends SQLiteOpenHelper {
                 "correo TEXT NOT NULL," +
                 "direccion TEXT NOT NULL," +
                 "telefono TEXT NOT NULL," +
-                "dniusuario INTEGER NOT NULL)");
+                "dniusuario TEXT NOT NULL)");
 
-        db.execSQL("CREATE TABLE " + TABLE_PRODUCTO_SERVICIO + "(" +
+        db.execSQL("CREATE TABLE " + TABLE_INVENTARIO + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT NOT NULL," +
                 "precio TEXT NOT NULL," +
-                "dniusuario INTEGER NOT NULL)");
+                //"imagen BLOB," + //Para un futuro
+                "dniusuario TEXT NOT NULL)");
+
+        db.execSQL("CREATE TABLE " + TABLE_FACTURAS + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "numero TEXT NOT NULL," +
+                "fecha TEXT NOT NULL," +
+                "descripcion TEXT NOT NULL," +
+                "dniusuario TEXT NOT NULL)");
+
+        db.execSQL("CREATE TABLE " + TABLE_PRESUPUESTO + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "numero TEXT NOT NULL," +
+                "fecha TEXT NOT NULL," +
+                "descripcion TEXT NOT NULL," +
+                "dniusuario TEXT NOT NULL)");
 
     }
 

@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+//Ventana de ajustes
 public class Ajustes extends AppCompatActivity {
 
     @Override
@@ -16,6 +18,18 @@ public class Ajustes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajustes);
 
+        Button but_ajustes = findViewById(R.id.but_ajustes);
+        Button but_cerrarsesion = findViewById(R.id.but_cerrarsesion);
+
+        //Boton para ir a ajustes de usuario
+        but_ajustes.setOnClickListener(v -> startActivity(new Intent(Ajustes.this, AjustesUsuario.class)));
+        //Boton para cerrar sesion
+        but_cerrarsesion.setOnClickListener(v -> {
+            startActivity(new Intent(Ajustes.this, MainActivity.class));
+            finish();
+        });
+
+        //Menu de abajo
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

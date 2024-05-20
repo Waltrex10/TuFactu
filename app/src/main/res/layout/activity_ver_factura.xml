@@ -10,12 +10,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <TextView
-            android:id="@+id/tv_inventariovi"
+            android:id="@+id/tv_facturavf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_inventariovi"
+            android:text="@string/tv_facturavf"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -28,22 +27,22 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tv_nombrevi"
+            android:id="@+id/tv_numerovf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_nombrevi"
+            android:text="@string/tv_numerovf"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_nombrevi"
+            android:id="@+id/et_numeronf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"
             android:ems="10"
             android:hint="@string/et_blanco"
             android:inputType="text"
-            android:labelFor="@+id/et_nombrevi"
+            android:labelFor="@+id/et_numeronf"
             android:textColor="#040404"
             android:textColorHint="#6C6A6C"
             android:textSize="20sp"
