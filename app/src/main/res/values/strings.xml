@@ -60,7 +60,7 @@
     <string name="tv_inventarioni"><u>Datos del producto:</u></string>
     <string name="et_nombreni">Nombre</string>
     <string name="et_precioni">Precio</string>
-    <string name="but_guardarni">Guardar producto</string>
+    <string name="but_guardarni">Añadir producto</string>
 
     <!-- verinventario -->
     <string name="tv_inventariovi"><u>Datos del producto</u></string>
@@ -91,8 +91,39 @@
     <!-- facturas -->
     <string name="fab_masf">Añadir facturas</string>
 
+    <!-- nuevofactura -->
+    <string name="tv_facturanf"><u>Datos de factura:</u></string>
+    <string name="et_numeronf">Numero</string>
+    <string name="et_fechanf">Fecha</string>
+    <string name="et_descripcionnf">Descripción</string>
+    <string name="but_guardarnf">Añadir factura</string>
+
+    <!-- verfactura -->
+    <string name="tv_facturavf"><u>Datos de factura</u></string>
+    <string name="tv_numerovf">Numero:</string>
+    <string name="tv_fechavf">Fecha:</string>
+    <string name="tv_descripcionvf">Descripción:</string>
+    <string name="fab_editarvf">Editar factura</string>
+    <string name="fab_borrarvf">Borrar factura</string>
+    <string name="fab_guardarvf">Guardar factura</string>
+
     <!-- presupuestos -->
     <string name="fab_masp">Añadir presupuestos</string>
 
+    <!-- nuevopresupuesto -->
+    <string name="tv_presupuestonp"><u>Datos de presupuesto:</u></string>
+    <string name="et_numeronp">Numero</string>
+    <string name="et_fechanp">Fecha</string>
+    <string name="et_descripcionnp">Descripción</string>
+    <string name="but_guardarnp">Añadir presupuesto</string>
+
+    <!-- verpresupuesto -->
+    <string name="tv_presupuestovp"><u>Datos de presupuesto</u></string>
+    <string name="tv_numerovp">Numero:</string>
+    <string name="tv_fechavp">Fecha:</string>
+    <string name="tv_descripcionvp">Descripción:</string>
+    <string name="fab_editarvp">Editar presupuesto</string>
+    <string name="fab_borrarvp">Borrar presupuesto</string>
+    <string name="fab_guardarvp">Guardar presupuesto</string>
 
 </resources>

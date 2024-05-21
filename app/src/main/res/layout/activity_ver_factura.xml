@@ -35,36 +35,58 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_numeronf"
+            android:id="@+id/et_numerovf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"
             android:ems="10"
             android:hint="@string/et_blanco"
             android:inputType="text"
-            android:labelFor="@+id/et_numeronf"
+            android:labelFor="@+id/et_numerovf"
             android:textColor="#040404"
             android:textColorHint="#6C6A6C"
             android:textSize="20sp"
             tools:ignore="LabelFor" />
 
         <TextView
-            android:id="@+id/tv_preciovi"
+            android:id="@+id/tv_fechavf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_preciovi"
+            android:text="@string/tv_fechavf"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_precioni"
+            android:id="@+id/et_fechavf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"
             android:ems="10"
             android:hint="@string/et_blanco"
             android:inputType="text"
-            android:labelFor="@+id/et_preciovi"
+            android:labelFor="@+id/et_fechavf"
+            android:textColor="#040404"
+            android:textColorHint="#6C6A6C"
+            android:textSize="20sp"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/tv_descripcionvf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_descripcionvf"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_descripcionvf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="no"
+            android:ems="10"
+            android:hint="@string/et_blanco"
+            android:inputType="text"
+            android:labelFor="@+id/et_descripcionvf"
             android:textColor="#040404"
             android:textColorHint="#6C6A6C"
             android:textSize="20sp"
@@ -78,35 +100,35 @@
             android:textSize="20sp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_guardarvi"
+            android:id="@+id/fab_guardarvf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_gravity="end"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/fab_guardarvi"
+            android:contentDescription="@string/fab_guardarvf"
             android:src="@drawable/baseline_save_24"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_editarvc"
+            android:id="@+id/fab_editarvf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_gravity="end"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/fab_editarvi"
+            android:contentDescription="@string/fab_editarvf"
             android:src="@drawable/baseline_edit_24"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_borrarvi"
+            android:id="@+id/fab_borrarvf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_gravity="end"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/fab_borrarvi"
+            android:contentDescription="@string/fab_borrarvf"
             android:src="@drawable/baseline_restore_from_trash_24"
             tools:ignore="MissingConstraints" />
 

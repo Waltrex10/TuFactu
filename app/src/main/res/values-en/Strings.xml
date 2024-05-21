@@ -92,7 +92,39 @@
     <!-- facturas -->
     <string name="fab_masf">Add invoices</string>
 
+    <!-- nuevofactura -->
+    <string name="tv_facturanf"><u>Invoice details:</u></string>
+    <string name="et_numeronf">Number</string>
+    <string name="et_fechanf">Date</string>
+    <string name="et_descripcionnf">Description</string>
+    <string name="but_guardarnf">Add invoices</string>
+
+    <!-- verfactura -->
+    <string name="tv_facturavf"><u>Invoice details</u></string>
+    <string name="tv_numerovf">Number:</string>
+    <string name="tv_fechavf">Date:</string>
+    <string name="tv_descripcionvf">Description:</string>
+    <string name="fab_editarvf">Edit invoice</string>
+    <string name="fab_borrarvf">Delete invoice</string>
+    <string name="fab_guardarvf">Save invoice</string>
+
     <!-- presupuestos -->
-    <string name="fab_masp">Add quotes</string>
+    <string name="fab_masp">Add budget</string>
+
+    <!-- nuevopresupuesto -->
+    <string name="tv_presupuestonp"><u>Budget data:</u></string>
+    <string name="et_numeronp">Number</string>
+    <string name="et_fechanp">Date</string>
+    <string name="et_descripcionnp">Description</string>
+    <string name="but_guardarnp">Add budget</string>
+
+    <!-- verpresupuesto -->
+    <string name="tv_presupuestovp"><u>Budget data</u></string>
+    <string name="tv_numerovp">Number:</string>
+    <string name="tv_fechavp">Date:</string>
+    <string name="tv_descripcionvp">Description:</string>
+    <string name="fab_editarvp">Edit budget</string>
+    <string name="fab_borrarvp">Delete budget</string>
+    <string name="fab_guardarvp">Save budget</string>
 
 </resources>

@@ -8,10 +8,10 @@
     tools:context=".NuevoPresupuesto">
 
     <TextView
-        android:id="@+id/tv_facturanp"
+        android:id="@+id/tv_presupuestonp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_facturanp"
+        android:text="@string/tv_presupuestonp"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />

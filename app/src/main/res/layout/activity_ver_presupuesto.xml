@@ -12,10 +12,10 @@
 
 
         <TextView
-            android:id="@+id/tv_inventariovi"
+            android:id="@+id/tv_presupuestovp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_inventariovi"
+            android:text="@string/tv_presupuestovp"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -28,44 +28,66 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tv_nombrevi"
+            android:id="@+id/tv_numerovp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_nombrevi"
+            android:text="@string/tv_numerovp"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_nombrevi"
+            android:id="@+id/et_numerovp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"
             android:ems="10"
             android:hint="@string/et_blanco"
             android:inputType="text"
-            android:labelFor="@+id/et_nombrevi"
+            android:labelFor="@+id/et_numerovp"
             android:textColor="#040404"
             android:textColorHint="#6C6A6C"
             android:textSize="20sp"
             tools:ignore="LabelFor" />
 
         <TextView
-            android:id="@+id/tv_preciovi"
+            android:id="@+id/tv_fechavp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_preciovi"
+            android:text="@string/tv_fechavp"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_precioni"
+            android:id="@+id/et_fechavp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"
             android:ems="10"
             android:hint="@string/et_blanco"
             android:inputType="text"
-            android:labelFor="@+id/et_preciovi"
+            android:labelFor="@+id/et_fechavp"
+            android:textColor="#040404"
+            android:textColorHint="#6C6A6C"
+            android:textSize="20sp"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/tv_descripcionvp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_descripcionvp"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_descripcionvp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="no"
+            android:ems="10"
+            android:hint="@string/et_blanco"
+            android:inputType="text"
+            android:labelFor="@+id/et_descripcionvp"
             android:textColor="#040404"
             android:textColorHint="#6C6A6C"
             android:textSize="20sp"
@@ -79,35 +101,35 @@
             android:textSize="20sp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_guardarvi"
+            android:id="@+id/fab_guardarvp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_gravity="end"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/fab_guardarvi"
+            android:contentDescription="@string/fab_guardarvp"
             android:src="@drawable/baseline_save_24"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_editarvc"
+            android:id="@+id/fab_editarvp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_gravity="end"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/fab_editarvi"
+            android:contentDescription="@string/fab_editarvp"
             android:src="@drawable/baseline_edit_24"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_borrarvi"
+            android:id="@+id/fab_borrarvp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_gravity="end"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/fab_borrarvi"
+            android:contentDescription="@string/fab_borrarvp"
             android:src="@drawable/baseline_restore_from_trash_24"
             tools:ignore="MissingConstraints" />
 
