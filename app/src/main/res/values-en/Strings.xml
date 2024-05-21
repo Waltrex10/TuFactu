@@ -9,7 +9,7 @@
     <string name="et_contrasena">Password</string>
     <string name="check_recordar">Remember me</string>
     <string name="but_iniciar_sesion">Log in</string>
-    <string name="tv_registro">It's your first time?</string>
+    <string name="tv_registro">It is your first time?</string>
     <string name="but_registro">Sign up</string>
 
     <!-- registro -->

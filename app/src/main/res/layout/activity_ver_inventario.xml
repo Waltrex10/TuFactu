@@ -58,7 +58,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_precioni"
+            android:id="@+id/et_preciovi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"

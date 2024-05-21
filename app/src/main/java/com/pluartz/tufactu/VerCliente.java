@@ -18,7 +18,6 @@ import com.pluartz.tufactu.entidades.LClientes;
 public class VerCliente extends AppCompatActivity {
 
     private EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
-    private FloatingActionButton fab_editar, fab_borrar, fab_guardar;
     LClientes cliente;
     int id = 0;
 
@@ -28,14 +27,14 @@ public class VerCliente extends AppCompatActivity {
         setContentView(R.layout.activity_ver_cliente);
 
         et_nombre = (EditText) findViewById(R.id.et_nombrevc);
-        et_apellidos = (EditText) findViewById(R.id.et_apellidosnc);
-        et_dni = (EditText) findViewById(R.id.et_dninc);
-        et_correo = (EditText) findViewById(R.id.et_correonc);
-        et_direccion = (EditText) findViewById(R.id.et_direccionnc);
-        et_telefono = (EditText) findViewById(R.id.et_telefononc);
-        fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvc);
-        fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvc);
-        fab_guardar = (FloatingActionButton) findViewById(R.id.fab_guardarvc);
+        et_apellidos = (EditText) findViewById(R.id.et_apellidosvc);
+        et_dni = (EditText) findViewById(R.id.et_dnivc);
+        et_correo = (EditText) findViewById(R.id.et_correovc);
+        et_direccion = (EditText) findViewById(R.id.et_direccionvc);
+        et_telefono = (EditText) findViewById(R.id.et_telefonovc);
+        FloatingActionButton fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvc);
+        FloatingActionButton fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvc);
+        FloatingActionButton fab_guardar = (FloatingActionButton) findViewById(R.id.fab_guardarvc);
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -69,13 +68,10 @@ public class VerCliente extends AppCompatActivity {
             et_telefono.setInputType(InputType.TYPE_NULL);
         }
 
-        fab_editar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(VerCliente.this,EditarCliente.class);
-                intent.putExtra("ID", id);
-                startActivity(intent);
-            }
+        fab_editar.setOnClickListener(v -> {
+            Intent intent = new Intent(VerCliente.this,EditarCliente.class);
+            intent.putExtra("ID", id);
+            startActivity(intent);
         });
 
         //Borrar clientes

@@ -36,7 +36,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/et_apellidosni"
+        android:id="@+id/et_precioni"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

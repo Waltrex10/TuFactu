@@ -32,8 +32,8 @@ public class Clientes extends AppCompatActivity {
 
         DBClientes dbClientes = new DBClientes(Clientes.this);
         listaArrayClientes = new ArrayList<>();
-        ListaClientesAdapter adapter = new ListaClientesAdapter(dbClientes.mostrarClientes());
-        listaClientes.setAdapter(adapter);
+        ListaClientesAdapter adapterc = new ListaClientesAdapter(dbClientes.mostrarClientes());
+        listaClientes.setAdapter(adapterc);
 
         FloatingActionButton fab_anadir = findViewById(R.id.fab_masc);
         fab_anadir.setOnClickListener(v -> startActivity(new Intent(Clientes.this, NuevoCliente.class)));

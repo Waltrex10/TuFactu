@@ -24,8 +24,7 @@ public class DBClientes extends DBHelper {
 
         long id = 0;
 
-        try {
-            DBHelper dbhelper = new DBHelper(context);
+        try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
 
             ContentValues values = new ContentValues();
@@ -39,7 +38,7 @@ public class DBClientes extends DBHelper {
 
             id = db.insert(TABLE_CLIENTES, null, values);
         } catch (Exception ex){
-            ex.toString();
+            ex.printStackTrace();
         }
         return id;
 
@@ -51,8 +50,7 @@ public class DBClientes extends DBHelper {
         LClientes cliente = null;
         Cursor cursorClientes = null;
 
-        try {
-            DBHelper dbhelper = new DBHelper(context);
+        try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
             cursorClientes = db.rawQuery("SELECT * FROM " + TABLE_CLIENTES, null);
 
@@ -70,10 +68,10 @@ public class DBClientes extends DBHelper {
                     listaClientes.add(cliente);
                 } while (cursorClientes.moveToNext());
             } else {
-                Log.d("DBClientes", "No clients found in the database.");
+                Log.d("DBClientes", "No se encontraron clientes en la base de datos.");
             }
         } catch (Exception ex) {
-            Log.e("DBClientes", "Error fetching clients", ex);
+            Log.e("DBClientes", "Error al recuperar clientes", ex);
         } finally {
             if (cursorClientes != null) {
                 cursorClientes.close();
@@ -120,11 +118,12 @@ public class DBClientes extends DBHelper {
         try {
             db.execSQL("UPDATE " + TABLE_CLIENTES + " SET nombre = '"+nombre+"', apellidos = '"+apellidos+"', dni = '"+dni+"', correo = '"+correo+"', direccion = '"+direccion+"', telefono = '"+telefono+"' WHERE id='" + id + "'");
             correcto = true;
-        } catch (Exception ex){
-            correcto = false;
-            ex.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
-            db.close();
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
         }
         return correcto;
 
@@ -141,11 +140,12 @@ public class DBClientes extends DBHelper {
         try {
             db.execSQL("DELETE FROM " + TABLE_CLIENTES + " WHERE id = '" + id + "'");
             correcto = true;
-        } catch (Exception ex){
-            correcto = false;
-            ex.toString();
+        }  catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
-            db.close();
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
         }
         return correcto;
 

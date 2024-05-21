@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pluartz.tufactu.R;
 import com.pluartz.tufactu.VerCliente;
+import com.pluartz.tufactu.VerInventario;
 import com.pluartz.tufactu.entidades.LInventario;
 
 import java.util.ArrayList;
@@ -45,12 +46,12 @@ public class ListaInventarioAdapter extends RecyclerView.Adapter<ListaInventario
         TextView tv_nombrei, tv_precioi;
         public inventarioViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_nombrei = itemView.findViewById(R.id.tv_nombrec);
+            tv_nombrei = itemView.findViewById(R.id.tv_nombrei);
             tv_precioi = itemView.findViewById(R.id.tv_precioi);
 
             itemView.setOnClickListener(view -> {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, VerCliente.class);
+                Intent intent = new Intent(context, VerInventario.class);
                 intent.putExtra("ID", listaInventario.get(getAdapterPosition()).getId());
                 context.startActivity(intent);
             });

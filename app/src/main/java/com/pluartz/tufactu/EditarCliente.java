@@ -26,11 +26,11 @@ public class EditarCliente extends AppCompatActivity {
         setContentView(R.layout.activity_ver_cliente);
 
         et_nombre = (EditText) findViewById(R.id.et_nombrevc);
-        et_apellidos = (EditText) findViewById(R.id.et_apellidosnc);
-        et_dni = (EditText) findViewById(R.id.et_dninc);
-        et_correo = (EditText) findViewById(R.id.et_correonc);
-        et_direccion = (EditText) findViewById(R.id.et_direccionnc);
-        et_telefono = (EditText) findViewById(R.id.et_telefononc);
+        et_apellidos = (EditText) findViewById(R.id.et_apellidosvc);
+        et_dni = (EditText) findViewById(R.id.et_dnivc);
+        et_correo = (EditText) findViewById(R.id.et_correovc);
+        et_direccion = (EditText) findViewById(R.id.et_direccionvc);
+        et_telefono = (EditText) findViewById(R.id.et_telefonovc);
         fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvc);
         fab_editar.setVisibility(View.INVISIBLE);
         fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvc);
@@ -61,20 +61,17 @@ public class EditarCliente extends AppCompatActivity {
 
         }
 
-        fab_guardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!et_nombre.getText().toString().equals("") && !et_apellidos.getText().toString().equals("")){
-                    correcto = dbClientes.editarCliente(id, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_dni.getText().toString(), et_correo.getText().toString(), et_direccion.getText().toString(), et_telefono.getText().toString());
-                    if(correcto){
-                        Toast.makeText(EditarCliente.this, "Registro modificado", Toast.LENGTH_LONG).show();
-                        lista();
-                    } else {
-                        Toast.makeText(EditarCliente.this,"Error al modificar cliente", Toast.LENGTH_LONG).show();
-                    }
+        fab_guardar.setOnClickListener(v -> {
+            if(!et_nombre.getText().toString().equals("") && !et_apellidos.getText().toString().equals("")){
+                correcto = dbClientes.editarCliente(id, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_dni.getText().toString(), et_correo.getText().toString(), et_direccion.getText().toString(), et_telefono.getText().toString());
+                if(correcto){
+                    Toast.makeText(EditarCliente.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                    lista();
                 } else {
-                    Toast.makeText(EditarCliente.this,"Debe llenar los campos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditarCliente.this,"Error al modificar cliente", Toast.LENGTH_LONG).show();
                 }
+            } else {
+                Toast.makeText(EditarCliente.this,"Debe llenar los campos", Toast.LENGTH_LONG).show();
             }
         });
 
