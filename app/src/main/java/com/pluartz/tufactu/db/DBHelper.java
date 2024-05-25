@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-//Creación de tablas
+//CREACION DE TABLAS DBHELPER
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -40,15 +40,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 "Apellidos TEXT NOT NULL," +
                 "dni TEXT NOT NULL," +
                 "correo TEXT NOT NULL," +
-                "direccion TEXT NOT NULL," +
                 "telefono TEXT NOT NULL," +
+                "direccion TEXT NOT NULL," +
                 "dniusuario TEXT NOT NULL)");
 
         db.execSQL("CREATE TABLE " + TABLE_INVENTARIO + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT NOT NULL," +
                 "precio TEXT NOT NULL," +
-                //"imagen BLOB," + //Para un futuro
                 "dniusuario TEXT NOT NULL)");
 
         db.execSQL("CREATE TABLE " + TABLE_FACTURAS + "(" +

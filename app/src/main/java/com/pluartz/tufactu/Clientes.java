@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.SearchEvent;
+import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,26 +19,31 @@ import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
 
-public class Clientes extends AppCompatActivity {
+public class Clientes extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
+    SearchView buscar;
     RecyclerView listaClientes;
     ArrayList<LClientes> listaArrayClientes;
+    ListaClientesAdapter adapterc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clientes);
 
-        listaClientes = (RecyclerView) findViewById(R.id.listaClientes);
+        buscar = findViewById(R.id.buscarc);
+        listaClientes = findViewById(R.id.listaClientes);
         listaClientes.setLayoutManager(new LinearLayoutManager(this));
 
         DBClientes dbClientes = new DBClientes(Clientes.this);
         listaArrayClientes = new ArrayList<>();
-        ListaClientesAdapter adapterc = new ListaClientesAdapter(dbClientes.mostrarClientes());
+        adapterc = new ListaClientesAdapter(dbClientes.mostrarClientes());
         listaClientes.setAdapter(adapterc);
 
         FloatingActionButton fab_anadir = findViewById(R.id.fab_masc);
         fab_anadir.setOnClickListener(v -> startActivity(new Intent(Clientes.this, NuevoCliente.class)));
+
+        buscar.setOnQueryTextListener(this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_person_add);
@@ -74,4 +81,15 @@ public class Clientes extends AppCompatActivity {
     private static final int NAVIGATION_INVENTORY_ID = R.id.navigation_inventory;
     private static final int NAVIGATION_PERSON_ADD_ID = R.id.navigation_person_add;
     private static final int NAVIGATION_SETTINGS_ID = R.id.navigation_settings;
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        adapterc.filtradoc(s);
+        return false;
+    }
 }

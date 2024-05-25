@@ -14,10 +14,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pluartz.tufactu.db.DBClientes;
 import com.pluartz.tufactu.entidades.LClientes;
 
-//Para ver, editar y eliminar clientes
+//VER, EDITAR Y ELIMINAR CLIENTE
 public class VerCliente extends AppCompatActivity {
 
-    private EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
+    EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
     LClientes cliente;
     int id = 0;
 
@@ -26,15 +27,15 @@ public class VerCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_cliente);
 
-        et_nombre = (EditText) findViewById(R.id.et_nombrevc);
-        et_apellidos = (EditText) findViewById(R.id.et_apellidosvc);
-        et_dni = (EditText) findViewById(R.id.et_dnivc);
-        et_correo = (EditText) findViewById(R.id.et_correovc);
-        et_direccion = (EditText) findViewById(R.id.et_direccionvc);
-        et_telefono = (EditText) findViewById(R.id.et_telefonovc);
-        FloatingActionButton fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvc);
-        FloatingActionButton fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvc);
-        FloatingActionButton fab_guardar = (FloatingActionButton) findViewById(R.id.fab_guardarvc);
+        et_nombre = findViewById(R.id.et_nombrevc);
+        et_apellidos = findViewById(R.id.et_apellidosvc);
+        et_dni = findViewById(R.id.et_dnivc);
+        et_correo = findViewById(R.id.et_correovc);
+        et_direccion = findViewById(R.id.et_direccionvc);
+        et_telefono = findViewById(R.id.et_telefonovc);
+        fab_editar = findViewById(R.id.fab_editarvc);
+        fab_borrar = findViewById(R.id.fab_borrarvc);
+        fab_guardar = findViewById(R.id.fab_guardarvc);
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -68,38 +69,29 @@ public class VerCliente extends AppCompatActivity {
             et_telefono.setInputType(InputType.TYPE_NULL);
         }
 
+        //EDITAR CLIENTE
         fab_editar.setOnClickListener(v -> {
             Intent intent = new Intent(VerCliente.this,EditarCliente.class);
             intent.putExtra("ID", id);
             startActivity(intent);
         });
 
-        //Borrar clientes
-        fab_borrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(VerCliente.this);
-                builder.setMessage("¿Seguro que quiere borrar el cliente?").setPositiveButton("SI", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if(dbClientes.eliminarCliente(id)){
-                            lista();
-                        }
+        //BORRAR CLIENTE
+        fab_borrar.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(VerCliente.this);
+            builder.setMessage("¿Seguro que quiere borrar el cliente?").setPositiveButton("SI", (dialog, which) -> {
+                if(dbClientes.eliminarCliente(id)){
+                    Volver();
+                }
+            }).setNegativeButton("NO", (dialog, which) -> {
 
-                    }
-                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                }).show();
-            }
+            }).show();
         });
 
     }
 
-    //Volver a clientes
-    private void lista(){
+    //VOLVER
+    private void Volver(){
         Intent volver = new Intent(this, Clientes.class);
         startActivity(volver);
     }

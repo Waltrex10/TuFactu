@@ -40,6 +40,15 @@
             android:name=".EditarCliente"
             android:exported="false" />
         <activity
+            android:name=".EditarPresupuesto"
+            android:exported="false" />
+        <activity
+            android:name=".EditarInventario"
+            android:exported="false" />
+        <activity
+            android:name=".EditarFactura"
+            android:exported="false" />
+        <activity
             android:name=".VerCliente"
             android:exported="false" />
         <activity

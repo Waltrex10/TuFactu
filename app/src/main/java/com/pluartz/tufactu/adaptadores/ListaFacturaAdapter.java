@@ -12,14 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pluartz.tufactu.R;
 import com.pluartz.tufactu.VerCliente;
+import com.pluartz.tufactu.VerFactura;
+import com.pluartz.tufactu.entidades.LClientes;
 import com.pluartz.tufactu.entidades.LFactura;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaFacturaAdapter extends RecyclerView.Adapter<ListaFacturaAdapter.facturaViewHolder> {
     static ArrayList<LFactura> listaFactura;
+    static ArrayList<LFactura> listaFacturab;
     public ListaFacturaAdapter(ArrayList<LFactura> listaFactura){
         ListaFacturaAdapter.listaFactura = listaFactura;
+        listaFacturab = new ArrayList<>();
+        listaFacturab.addAll(listaFactura);
     }
     @NonNull
     @Override
@@ -34,6 +41,27 @@ public class ListaFacturaAdapter extends RecyclerView.Adapter<ListaFacturaAdapte
         holder.tv_numerof.setText(factura.getNumero());
         holder.tv_fechaf.setText(factura.getFecha());
         holder.tv_descripcionf.setText(factura.getDescripcion());
+    }
+
+    public void filtradof(final String buscar) {
+        int longitud = buscar.length();
+        if (longitud == 0) {
+            listaFactura.clear();
+            listaFactura.addAll(listaFacturab);
+        } else {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                List<LFactura> collecion = listaFactura.stream().filter(i -> i.getNumero().toLowerCase().contains(buscar.toLowerCase())).collect(Collectors.toList());
+                listaFactura.clear();
+                listaFactura.addAll(collecion);
+            } else {
+                for (LFactura c : listaFacturab) {
+                    if (c.getNumero().toLowerCase().contains(buscar.toLowerCase())) {
+                        listaFactura.add(c);
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override
@@ -51,7 +79,7 @@ public class ListaFacturaAdapter extends RecyclerView.Adapter<ListaFacturaAdapte
 
             itemView.setOnClickListener(view -> {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, VerCliente.class);
+                Intent intent = new Intent(context, VerFactura.class);
                 intent.putExtra("ID", listaFactura.get(getAdapterPosition()).getId());
                 context.startActivity(intent);
             });

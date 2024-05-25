@@ -13,15 +13,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.pluartz.tufactu.R;
 import com.pluartz.tufactu.VerCliente;
 import com.pluartz.tufactu.VerInventario;
+import com.pluartz.tufactu.entidades.LClientes;
 import com.pluartz.tufactu.entidades.LInventario;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaInventarioAdapter extends RecyclerView.Adapter<ListaInventarioAdapter.inventarioViewHolder> {
 
     static ArrayList<LInventario> listaInventario;
+    static ArrayList<LInventario> listaInventariob;
     public ListaInventarioAdapter(ArrayList<LInventario> listaInventario){
         ListaInventarioAdapter.listaInventario = listaInventario;
+        listaInventariob = new ArrayList<>();
+        listaInventariob.addAll(listaInventario);
     }
     @NonNull
     @Override
@@ -35,6 +41,27 @@ public class ListaInventarioAdapter extends RecyclerView.Adapter<ListaInventario
         LInventario inventario = listaInventario.get(position);
         holder.tv_nombrei.setText(inventario.getNombre());
         holder.tv_precioi.setText(inventario.getPrecio());
+    }
+
+    public void filtradoi(final String buscar) {
+        int longitud = buscar.length();
+        if (longitud == 0) {
+            listaInventario.clear();
+            listaInventario.addAll(listaInventariob);
+        } else {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                List<LInventario> collecion = listaInventario.stream().filter(i -> i.getNombre().toLowerCase().contains(buscar.toLowerCase())).collect(Collectors.toList());
+                listaInventario.clear();
+                listaInventario.addAll(collecion);
+            } else {
+                for (LInventario c : listaInventariob) {
+                    if (c.getNombre().toLowerCase().contains(buscar.toLowerCase())) {
+                        listaInventario.add(c);
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override

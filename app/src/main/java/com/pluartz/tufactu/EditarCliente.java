@@ -14,8 +14,8 @@ import com.pluartz.tufactu.entidades.LClientes;
 
 public class EditarCliente extends AppCompatActivity {
 
-    private EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
-    private FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
     boolean correcto = false;
     LClientes cliente;
     int id = 0;
@@ -25,17 +25,17 @@ public class EditarCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_cliente);
 
-        et_nombre = (EditText) findViewById(R.id.et_nombrevc);
-        et_apellidos = (EditText) findViewById(R.id.et_apellidosvc);
-        et_dni = (EditText) findViewById(R.id.et_dnivc);
-        et_correo = (EditText) findViewById(R.id.et_correovc);
-        et_direccion = (EditText) findViewById(R.id.et_direccionvc);
-        et_telefono = (EditText) findViewById(R.id.et_telefonovc);
-        fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvc);
+        et_nombre = findViewById(R.id.et_nombrevc);
+        et_apellidos = findViewById(R.id.et_apellidosvc);
+        et_dni = findViewById(R.id.et_dnivc);
+        et_correo = findViewById(R.id.et_correovc);
+        et_direccion = findViewById(R.id.et_direccionvc);
+        et_telefono = findViewById(R.id.et_telefonovc);
+        fab_editar = findViewById(R.id.fab_editarvc);
         fab_editar.setVisibility(View.INVISIBLE);
-        fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvc);
+        fab_borrar = findViewById(R.id.fab_borrarvc);
         fab_borrar.setVisibility(View.INVISIBLE);
-        fab_guardar = (FloatingActionButton) findViewById(R.id.fab_guardarvc);
+        fab_guardar = findViewById(R.id.fab_guardarvc);
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -66,7 +66,7 @@ public class EditarCliente extends AppCompatActivity {
                 correcto = dbClientes.editarCliente(id, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_dni.getText().toString(), et_correo.getText().toString(), et_direccion.getText().toString(), et_telefono.getText().toString());
                 if(correcto){
                     Toast.makeText(EditarCliente.this, "Registro modificado", Toast.LENGTH_LONG).show();
-                    lista();
+                    Volver();
                 } else {
                     Toast.makeText(EditarCliente.this,"Error al modificar cliente", Toast.LENGTH_LONG).show();
                 }
@@ -77,7 +77,7 @@ public class EditarCliente extends AppCompatActivity {
 
     }
 
-    private void lista(){
+    private void Volver(){
         Intent intent = new Intent(this, VerCliente.class);
         intent.putExtra("ID", id);
         startActivity(intent);

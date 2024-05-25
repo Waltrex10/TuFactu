@@ -15,13 +15,18 @@ import com.pluartz.tufactu.VerCliente;
 import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdapter.clienteViewHolder> {
 
     static ArrayList<LClientes> listaClientes;
+    static ArrayList<LClientes> listaClientesb;
     public ListaClientesAdapter(ArrayList<LClientes> listaClientes){
         ListaClientesAdapter.listaClientes = listaClientes;
+        listaClientesb = new ArrayList<>();
+        listaClientesb.addAll(listaClientes);
     }
 
     @NonNull
@@ -40,7 +45,27 @@ public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdap
         holder.tv_correoc.setText(cliente.getCorreo());
         holder.tv_direccionc.setText(cliente.getDireccion());
         holder.tv_telefonoc.setText(cliente.getTelefono());
+    }
 
+    public void filtradoc(final String buscar) {
+        int longitud = buscar.length();
+        if (longitud == 0) {
+            listaClientes.clear();
+            listaClientes.addAll(listaClientesb);
+        } else {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                List<LClientes> collecion = listaClientes.stream().filter(i -> i.getNombre().toLowerCase().contains(buscar.toLowerCase())).collect(Collectors.toList());
+                listaClientes.clear();
+                listaClientes.addAll(collecion);
+            } else {
+                for (LClientes c : listaClientesb) {
+                    if (c.getNombre().toLowerCase().contains(buscar.toLowerCase())) {
+                        listaClientes.add(c);
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override

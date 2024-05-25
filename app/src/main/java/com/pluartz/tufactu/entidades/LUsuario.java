@@ -1,17 +1,19 @@
 package com.pluartz.tufactu.entidades;
 
-import com.pluartz.tufactu.Clientes;
+import com.pluartz.tufactu.Registro;
 
-public class LClientes extends Clientes {
-
+public class LUsuario  extends Registro {
     private int id;
     private String nombre;
     private String apellidos;
     private String dni;
     private String correo;
+    private String contrasena;
+    private String empresa;
     private String telefono;
+    private String postal;
     private String direccion;
-    private String dniusuario;
+
 
     public int getId() {
         return id;
@@ -53,12 +55,36 @@ public class LClientes extends Clientes {
         this.correo = correo;
     }
 
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getPostal() {
+        return postal;
+    }
+
+    public void setPostal(String postal) {
+        this.postal = postal;
     }
 
     public String getDireccion() {
@@ -69,11 +95,4 @@ public class LClientes extends Clientes {
         this.direccion = direccion;
     }
 
-    public String getDniusuario() {
-        return dniusuario;
-    }
-
-    public void setDniusuario(String dniusuario) {
-        this.dniusuario = dniusuario;
-    }
 }

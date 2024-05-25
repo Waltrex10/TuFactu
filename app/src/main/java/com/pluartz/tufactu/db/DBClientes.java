@@ -1,5 +1,6 @@
 package com.pluartz.tufactu.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,8 +11,9 @@ import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
 
-//Metodos de la base de datos clientes
+//BASE DE DATOS CLIENTES
 public class DBClientes extends DBHelper {
+    @SuppressLint("StaticFieldLeak")
     static Context context;
 
     public DBClientes(Context context) {
@@ -19,41 +21,33 @@ public class DBClientes extends DBHelper {
         DBClientes.context = context;
     }
 
-    //Metodo para insertar un cliente
-    public long insertaCliente(String nombre, String apellidos, String dni, String correo,  String direccion, String telefono, String dniusuario){
-
+    //INSERTAR CLIENTES
+    public long insertaCliente(String nombre, String apellidos, String dni, String correo, String telefono, String direccion, String dniusuario){
         long id = 0;
-
         try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
-
             ContentValues values = new ContentValues();
             values.put("nombre", nombre);
             values.put("apellidos", apellidos);
             values.put("dni", dni);
             values.put("correo", correo);
-            values.put("direccion", direccion);
             values.put("telefono", telefono);
+            values.put("direccion", direccion);
             values.put("dniusuario", dniusuario);
-
             id = db.insert(TABLE_CLIENTES, null, values);
         } catch (Exception ex){
             ex.printStackTrace();
         }
         return id;
-
     }
-
-    //Metodo para motrar todos los clientes
+    //MOSTRAR CLIENTES
     public static ArrayList<LClientes> mostrarClientes() {
         ArrayList<LClientes> listaClientes = new ArrayList<>();
-        LClientes cliente = null;
+        LClientes cliente;
         Cursor cursorClientes = null;
-
         try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
             cursorClientes = db.rawQuery("SELECT * FROM " + TABLE_CLIENTES, null);
-
             if (cursorClientes.moveToFirst()) {
                 do {
                     cliente = new LClientes();
@@ -77,20 +71,15 @@ public class DBClientes extends DBHelper {
                 cursorClientes.close();
             }
         }
-
         return listaClientes;
     }
-
-    //Metodo para ver un cliente
+    //VER CLEINTE
     public LClientes verCliente(int id) {
-
         LClientes cliente = null;
         Cursor cursorClientes;
-
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         cursorClientes = db.rawQuery("SELECT * FROM " + TABLE_CLIENTES + " WHERE id = " + id + " LIMIT 1 ", null);
-
         if (cursorClientes.moveToFirst()) {
             cliente = new LClientes();
             cliente.setId(cursorClientes.getInt(0));
@@ -101,20 +90,15 @@ public class DBClientes extends DBHelper {
             cliente.setDireccion(cursorClientes.getString(5));
             cliente.setTelefono(cursorClientes.getString(6));
             cliente.setDniusuario(cursorClientes.getString(7));
-
         }
         cursorClientes.close();
         return cliente;
     }
-
-    //Metodo para editar un cliente
+    //EDITAR CLIENTE
     public boolean editarCliente(int id, String nombre, String apellidos, String dni, String correo,  String direccion, String telefono){
-
         boolean correcto = false;
-
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-
         try {
             db.execSQL("UPDATE " + TABLE_CLIENTES + " SET nombre = '"+nombre+"', apellidos = '"+apellidos+"', dni = '"+dni+"', correo = '"+correo+"', direccion = '"+direccion+"', telefono = '"+telefono+"' WHERE id='" + id + "'");
             correcto = true;
@@ -126,17 +110,12 @@ public class DBClientes extends DBHelper {
             }
         }
         return correcto;
-
     }
-
-    //Metodo para eliminar un cliente
+    //ELIMINAR CLIENTE
     public boolean eliminarCliente(int id){
-
         boolean correcto = false;
-
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-
         try {
             db.execSQL("DELETE FROM " + TABLE_CLIENTES + " WHERE id = '" + id + "'");
             correcto = true;
@@ -148,7 +127,6 @@ public class DBClientes extends DBHelper {
             }
         }
         return correcto;
-
     }
 
 }

@@ -6,16 +6,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.SearchView;
+
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.pluartz.tufactu.adaptadores.ListaClientesAdapter;
+import com.pluartz.tufactu.adaptadores.ListaFacturaAdapter;
+import com.pluartz.tufactu.db.DBFactura;
+import com.pluartz.tufactu.entidades.LClientes;
+import com.pluartz.tufactu.entidades.LFactura;
+
+import java.util.ArrayList;
 
 
-public class Facturas extends AppCompatActivity {
+public class Facturas extends AppCompatActivity implements SearchView.OnQueryTextListener {
+
+    SearchView buscar;
+    RecyclerView listaFacturas;
+    ArrayList<LFactura> listaArrayFacturas;
+    ListaFacturaAdapter adapterf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facturas);
+
+        buscar = findViewById(R.id.buscarf);
+        listaFacturas = findViewById(R.id.listaFactura);
+        listaFacturas.setLayoutManager(new LinearLayoutManager(this));
+
+        DBFactura dbFactura = new DBFactura(Facturas.this);
+        listaArrayFacturas = new ArrayList<>();
+        adapterf = new ListaFacturaAdapter(dbFactura.mostrarFactura());
+        listaFacturas.setAdapter(adapterf);
+
+        FloatingActionButton fab_anadir = findViewById(R.id.fab_masf);
+        fab_anadir.setOnClickListener(v -> startActivity(new Intent(Facturas.this, NuevaFactura.class)));
+
+        buscar.setOnQueryTextListener(this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_request_page);
@@ -54,4 +86,14 @@ public class Facturas extends AppCompatActivity {
     private static final int NAVIGATION_PERSON_ADD_ID = R.id.navigation_person_add;
     private static final int NAVIGATION_SETTINGS_ID = R.id.navigation_settings;
 
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        adapterf.filtradof(s);
+        return false;
+    }
 }

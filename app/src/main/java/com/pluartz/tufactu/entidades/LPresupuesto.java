@@ -1,6 +1,9 @@
 package com.pluartz.tufactu.entidades;
 
-public class LPresupuesto {
+import com.pluartz.tufactu.Clientes;
+import com.pluartz.tufactu.Presupuestos;
+
+public class LPresupuesto  extends Presupuestos {
     private int id;
     private String numero;
     private String fecha;

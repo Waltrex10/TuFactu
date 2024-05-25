@@ -3,6 +3,13 @@
     <string name="tv_blanco"></string>
     <string name="et_blanco">....</string>
 
+    <!-- menu -->
+    <string name="et_facturam">Facturas</string>
+    <string name="et_presupuestom">Presupuestos</string>
+    <string name="et_inventariom">Inventario</string>
+    <string name="et_clientem">Clientes</string>
+    <string name="et_ajustesm">Ajustes</string>
+
     <!-- main -->
     <string name="et_dni">DNI</string>
     <string name="et_contrasena">Contraseña</string>

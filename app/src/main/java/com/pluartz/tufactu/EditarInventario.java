@@ -14,8 +14,8 @@ import com.pluartz.tufactu.entidades.LInventario;
 
 public class EditarInventario extends AppCompatActivity {
 
-    private EditText et_nombre, et_precio;
-    private FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    EditText et_nombre, et_precio;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
 
     boolean correcto = false;
     LInventario inventario;
@@ -25,13 +25,13 @@ public class EditarInventario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_inventario);
 
-        et_nombre = (EditText) findViewById(R.id.et_nombrevi);
-        et_precio = (EditText) findViewById(R.id.et_preciovi);
-        fab_editar = (FloatingActionButton) findViewById(R.id.fab_editarvi);
+        et_nombre = findViewById(R.id.et_nombrevi);
+        et_precio = findViewById(R.id.et_preciovi);
+        fab_editar = findViewById(R.id.fab_editarvi);
         fab_editar.setVisibility(View.INVISIBLE);
-        fab_borrar = (FloatingActionButton) findViewById(R.id.fab_borrarvi);
+        fab_borrar = findViewById(R.id.fab_borrarvi);
         fab_borrar.setVisibility(View.INVISIBLE);
-        fab_guardar = (FloatingActionButton) findViewById(R.id.fab_guardarvi);
+        fab_guardar = findViewById(R.id.fab_guardarvi);
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -58,7 +58,7 @@ public class EditarInventario extends AppCompatActivity {
                 correcto = dbInventario.editarInventario(id, et_nombre.getText().toString(), et_precio.getText().toString());
                 if(correcto){
                     Toast.makeText(EditarInventario.this, "Registro modificado", Toast.LENGTH_LONG).show();
-                    lista();
+                    Volver();
                 } else {
                     Toast.makeText(EditarInventario.this,"Error al modificar el producto", Toast.LENGTH_LONG).show();
                 }
@@ -70,7 +70,7 @@ public class EditarInventario extends AppCompatActivity {
     }
 
     //Volver a inventario
-    private void lista(){
+    private void Volver(){
         Intent intent = new Intent(this, VerInventario.class);
         intent.putExtra("ID", id);
         startActivity(intent);

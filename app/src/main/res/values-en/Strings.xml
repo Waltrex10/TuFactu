@@ -4,6 +4,13 @@
     <string name="tv_blanco"></string>
     <string name="et_blanco">....</string>
 
+    <!-- menu -->
+    <string name="et_facturam">Invoices</string>
+    <string name="et_presupuestom">Budgets</string>
+    <string name="et_inventariom">Inventory</string>
+    <string name="et_clientem">Clients</string>
+    <string name="et_ajustesm">Settings</string>
+
     <!-- main -->
     <string name="et_dni">ID</string>
     <string name="et_contrasena">Password</string>

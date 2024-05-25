@@ -1,6 +1,9 @@
 package com.pluartz.tufactu.entidades;
 
-public class LFactura {
+import com.pluartz.tufactu.Clientes;
+import com.pluartz.tufactu.Facturas;
+
+public class LFactura  extends Facturas {
     private int id;
     private String numero;
     private String fecha;

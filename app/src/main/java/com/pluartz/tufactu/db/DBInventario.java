@@ -1,5 +1,6 @@
 package com.pluartz.tufactu.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,8 +11,9 @@ import com.pluartz.tufactu.entidades.LInventario;
 
 import java.util.ArrayList;
 
-//Metodos de la base de datos inventario
+//BASE DE DATOS INVENTARIO
 public class DBInventario extends DBHelper {
+    @SuppressLint("StaticFieldLeak")
     static Context context;
 
     public DBInventario(Context context) {
@@ -19,7 +21,7 @@ public class DBInventario extends DBHelper {
         DBInventario.context = context;
     }
 
-    //Metodo insertar inventario
+    //INSERTAR INVENTARIO
     public long insertaInventario(String nombre, String precio, String dniusuario) {
 
         long id = 0;
@@ -37,19 +39,17 @@ public class DBInventario extends DBHelper {
             ex.printStackTrace();
         }
         return id;
-
     }
 
-    //Metodo pra mostrar el inventario
+    //MOSTRAR INVENTARIO
     public static ArrayList<LInventario> mostrarInventario() {
-        ArrayList<LInventario> listaInventario = new ArrayList<>();
-        LInventario inventario = null;
-        Cursor cursorInventario = null;
 
+        ArrayList<LInventario> listaInventario = new ArrayList<>();
+        LInventario inventario;
+        Cursor cursorInventario = null;
         try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
             cursorInventario = db.rawQuery("SELECT * FROM " + TABLE_INVENTARIO, null);
-
             if (cursorInventario.moveToFirst()) {
                 do {
                     inventario = new LInventario();
@@ -69,40 +69,36 @@ public class DBInventario extends DBHelper {
                 cursorInventario.close();
             }
         }
-
         return listaInventario;
+
     }
 
-    //Metodo para ver un inventario
+    //VER INVENTARIO
     public LInventario verInventario(int id) {
 
         LInventario inventario = null;
         Cursor cursorInventario;
-
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         cursorInventario = db.rawQuery("SELECT * FROM " + TABLE_INVENTARIO + " WHERE id = " + id + " LIMIT 1 ", null);
-
         if (cursorInventario.moveToFirst()) {
             inventario = new LInventario();
             inventario.setId(cursorInventario.getInt(0));
             inventario.setNombre(cursorInventario.getString(1));
             inventario.setPrecio(cursorInventario.getString(2));
             inventario.setDniusuario(cursorInventario.getString(3));
-
         }
         cursorInventario.close();
         return inventario;
+
     }
 
-    //Metodo para editar un inventario
+    //EDITAR INVENTARIO
     public boolean editarInventario(int id, String nombre, String precio){
 
         boolean correcto = false;
-
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-
         try {
             db.execSQL("UPDATE " + TABLE_INVENTARIO + " SET nombre = '"+nombre+"', precio = '"+precio+"' WHERE id='" + id + "'");
             correcto = true;
@@ -117,14 +113,12 @@ public class DBInventario extends DBHelper {
 
     }
 
-    //Metodo para eliminar un inventario
+    //ELIMINAR INVENTARIO
     public boolean eliminarInventario(int id){
 
         boolean correcto = false;
-
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-
         try {
             db.execSQL("DELETE FROM " + TABLE_INVENTARIO + " WHERE id = '" + id + "'");
             correcto = true;
@@ -136,7 +130,6 @@ public class DBInventario extends DBHelper {
             }
         }
         return correcto;
-
     }
 
 
