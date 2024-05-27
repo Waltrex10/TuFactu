@@ -132,5 +132,50 @@ public class DBInventario extends DBHelper {
         return correcto;
     }
 
+    //Obtener nombres
+    public ArrayList<String> obtenerNombresInventario() {
+        ArrayList<String> listaNombres = new ArrayList<>();
+        Cursor cursorInventario = null;
+        try (DBHelper dbhelper = new DBHelper(context)){
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            cursorInventario = db.rawQuery("SELECT nombre FROM " + TABLE_INVENTARIO, null);
+            if (cursorInventario.moveToFirst()) {
+                do {
+                    listaNombres.add(cursorInventario.getString(0));
+                } while (cursorInventario.moveToNext());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (cursorInventario != null) {
+                cursorInventario.close();
+            }
+        }
+        return listaNombres;
+    }
+
+    public LInventario obtenerInventarioPorNombre(String nombreInventario) {
+        LInventario inventario = null;
+        Cursor cursorInventario = null;
+        try (DBHelper dbhelper = new DBHelper(context)){
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            // Consulta para obtener el inventario por su nombre
+            cursorInventario = db.rawQuery("SELECT * FROM " + TABLE_INVENTARIO + " WHERE nombre = ?", new String[]{nombreInventario});
+            if (cursorInventario.moveToFirst()) {
+                inventario = new LInventario();
+                inventario.setId(cursorInventario.getInt(0));
+                inventario.setNombre(cursorInventario.getString(1));
+                inventario.setPrecio(cursorInventario.getString(2));
+                inventario.setDniusuario(cursorInventario.getString(3));
+            }
+        } catch (Exception ex) {
+            Log.e("DBInventario", "Error al obtener inventario por nombre", ex);
+        } finally {
+            if (cursorInventario != null) {
+                cursorInventario.close();
+            }
+        }
+        return inventario;
+    }
 
 }

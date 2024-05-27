@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.pluartz.tufactu.entidades.LClientes;
+import com.pluartz.tufactu.entidades.LUsuario;
 
 import java.util.ArrayList;
 
@@ -127,6 +128,47 @@ public class DBClientes extends DBHelper {
             }
         }
         return correcto;
+    }
+
+    //LISTA DNI
+    public ArrayList<String> obtenerDniClientes() {
+        ArrayList<String> listaDni = new ArrayList<>();
+        Cursor cursorClientes = null;
+        try (DBHelper dbhelper = new DBHelper(context)){
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+            cursorClientes = db.rawQuery("SELECT dni FROM " + TABLE_CLIENTES, null);
+            if (cursorClientes.moveToFirst()) {
+                do {
+                    listaDni.add(cursorClientes.getString(0));
+                } while (cursorClientes.moveToNext());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (cursorClientes != null) {
+                cursorClientes.close();
+            }
+        }
+        return listaDni;
+    }
+
+    public LClientes obtenerClientePorDNI(String dni) {
+        LClientes cliente = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CLIENTES + " WHERE dni = ?", new String[]{dni});
+        if (cursor.moveToFirst()) {
+            cliente = new LClientes();
+            cliente.setId(cursor.getInt(0));
+            cliente.setNombre(cursor.getString(1));
+            cliente.setApellidos(cursor.getString(2));
+            cliente.setDni(cursor.getString(3));
+            cliente.setCorreo(cursor.getString(4));
+            cliente.setTelefono(cursor.getString(5));
+            cliente.setDireccion(cursor.getString(6));
+            cliente.setDniusuario(cursor.getString(7));
+        }
+        cursor.close();
+        return cliente;
     }
 
 }

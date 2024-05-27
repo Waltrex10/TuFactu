@@ -24,7 +24,7 @@ public class DBFactura extends DBHelper {
     }
 
     //INSERTAR FACTURA
-    public long insertarFactura(String numero, String fecha, String descripcion, String dniusuario){
+    public long insertarFactura(String numero, String fecha, String descripcion, String dnicliente, String dniusuario){
 
         long id = 0;
 
@@ -35,6 +35,7 @@ public class DBFactura extends DBHelper {
             values.put("numero", numero);
             values.put("fecha", fecha);
             values.put("descripcion", descripcion);
+            values.put("dnicliente", dnicliente);
             values.put("dniusuario", dniusuario);
 
             id = db.insert(TABLE_FACTURAS, null, values);
@@ -44,7 +45,7 @@ public class DBFactura extends DBHelper {
         return id;
     }
 
-    //MOSTRAR FACTURA
+    //MOSTRAR FACTURAS
     public static ArrayList<LFactura> mostrarFactura() {
 
         ArrayList<LFactura> listaFactura = new ArrayList<>();
@@ -62,7 +63,8 @@ public class DBFactura extends DBHelper {
                     factura.setNumero(cursorFactura.getString(1));
                     factura.setFecha(cursorFactura.getString(2));
                     factura.setDescripcion(cursorFactura.getString(3));
-                    factura.setDniusuario(cursorFactura.getString(4));
+                    factura.setDnicliente(cursorFactura.getString(4));
+                    factura.setDniusuario(cursorFactura.getString(5));
                     listaFactura.add(factura);
                 } while (cursorFactura.moveToNext());
             } else {
@@ -92,20 +94,21 @@ public class DBFactura extends DBHelper {
             factura.setNumero(cursorFactura.getString(1));
             factura.setFecha(cursorFactura.getString(2));
             factura.setDescripcion(cursorFactura.getString(3));
-            factura.setDniusuario(cursorFactura.getString(4));
+            factura.setDnicliente(cursorFactura.getString(4));
+            factura.setDniusuario(cursorFactura.getString(5));
         }
         cursorFactura.close();
         return factura;
     }
 
     //EDITAR FACTURA
-    public boolean editarFactura(int id, String numero, String fecha, String descripcion){
+    public boolean editarFactura(int id, String numero, String fecha, String descripcion, String dnicliente){
 
         boolean correcto = false;
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         try {
-            db.execSQL("UPDATE " + TABLE_FACTURAS + " SET numero = '"+numero+"', fecha = '"+fecha+"', descripcion = '"+descripcion+"' WHERE id='" + id + "'");
+            db.execSQL("UPDATE " + TABLE_FACTURAS + " SET numero = '"+numero+"', fecha = '"+fecha+"', descripcion = '"+descripcion+"', dnicliente = '"+dnicliente+"' WHERE id='" + id + "'");
             correcto = true;
         } catch (Exception ex) {
             ex.printStackTrace();

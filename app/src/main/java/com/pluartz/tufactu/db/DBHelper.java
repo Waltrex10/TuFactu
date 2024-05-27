@@ -55,6 +55,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "numero TEXT NOT NULL," +
                 "fecha TEXT NOT NULL," +
                 "descripcion TEXT NOT NULL," +
+                "dnicliente TEXT NOT NULL," +
                 "dniusuario TEXT NOT NULL)");
 
         db.execSQL("CREATE TABLE " + TABLE_PRESUPUESTO + "(" +
@@ -62,6 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "numero TEXT NOT NULL," +
                 "fecha TEXT NOT NULL," +
                 "descripcion TEXT NOT NULL," +
+                "dnicliente TEXT NOT NULL," +
                 "dniusuario TEXT NOT NULL)");
 
     }

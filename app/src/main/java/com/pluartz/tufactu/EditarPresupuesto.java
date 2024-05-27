@@ -15,8 +15,7 @@ import com.pluartz.tufactu.entidades.LPresupuesto;
 public class EditarPresupuesto extends AppCompatActivity {
 
     EditText et_numero, et_fecha, et_descripcion;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
-
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
     boolean correcto = false;
     LPresupuesto presupuesto;
     int id = 0;
@@ -32,6 +31,8 @@ public class EditarPresupuesto extends AppCompatActivity {
         fab_editar.setVisibility(View.INVISIBLE);
         fab_borrar = findViewById(R.id.fab_borrarvp);
         fab_borrar.setVisibility(View.INVISIBLE);
+        fab_volver = findViewById(R.id.fab_volvervp);
+        fab_volver.setVisibility(View.INVISIBLE);
         fab_guardar = findViewById(R.id.fab_guardarvp);
 
         if (savedInstanceState == null) {
@@ -60,6 +61,7 @@ public class EditarPresupuesto extends AppCompatActivity {
                 correcto = dbPresupuesto.editarPresuspuesto(id, et_numero.getText().toString(), et_fecha.getText().toString(), et_descripcion.getText().toString());
                 if(correcto){
                     Toast.makeText(EditarPresupuesto.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                    finish();
                     Volver();
                 } else {
                     Toast.makeText(EditarPresupuesto.this,"Error al modificar la factura", Toast.LENGTH_LONG).show();

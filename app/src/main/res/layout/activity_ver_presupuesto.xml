@@ -133,5 +133,16 @@
             android:src="@drawable/baseline_restore_from_trash_24"
             tools:ignore="MissingConstraints" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_volvervp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="end"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/fab_volver"
+            android:src="@drawable/baseline_arrow_back_24"
+            tools:ignore="MissingConstraints" />
+
     </LinearLayout>
 </ScrollView>

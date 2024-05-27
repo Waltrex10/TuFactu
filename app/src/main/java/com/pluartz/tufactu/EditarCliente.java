@@ -15,7 +15,7 @@ import com.pluartz.tufactu.entidades.LClientes;
 public class EditarCliente extends AppCompatActivity {
 
     EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
     boolean correcto = false;
     LClientes cliente;
     int id = 0;
@@ -35,6 +35,8 @@ public class EditarCliente extends AppCompatActivity {
         fab_editar.setVisibility(View.INVISIBLE);
         fab_borrar = findViewById(R.id.fab_borrarvc);
         fab_borrar.setVisibility(View.INVISIBLE);
+        fab_volver = findViewById(R.id.fab_volvervc);
+        fab_volver.setVisibility(View.INVISIBLE);
         fab_guardar = findViewById(R.id.fab_guardarvc);
 
         if (savedInstanceState == null) {
@@ -66,6 +68,7 @@ public class EditarCliente extends AppCompatActivity {
                 correcto = dbClientes.editarCliente(id, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_dni.getText().toString(), et_correo.getText().toString(), et_direccion.getText().toString(), et_telefono.getText().toString());
                 if(correcto){
                     Toast.makeText(EditarCliente.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                    finish();
                     Volver();
                 } else {
                     Toast.makeText(EditarCliente.this,"Error al modificar cliente", Toast.LENGTH_LONG).show();

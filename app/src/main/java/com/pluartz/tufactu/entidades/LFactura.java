@@ -8,6 +8,7 @@ public class LFactura  extends Facturas {
     private String numero;
     private String fecha;
     private String descripcion;
+    private String dnicliente;
     private String dniusuario;
 
     public int getId() {
@@ -40,6 +41,14 @@ public class LFactura  extends Facturas {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getDnicliente() {
+        return dnicliente;
+    }
+
+    public void setDnicliente(String dnicliente) {
+        this.dnicliente = dnicliente;
     }
 
     public String getDniusuario() {

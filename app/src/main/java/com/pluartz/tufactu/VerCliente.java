@@ -18,7 +18,7 @@ import com.pluartz.tufactu.entidades.LClientes;
 public class VerCliente extends AppCompatActivity {
 
     EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
     LClientes cliente;
     int id = 0;
 
@@ -35,7 +35,9 @@ public class VerCliente extends AppCompatActivity {
         et_telefono = findViewById(R.id.et_telefonovc);
         fab_editar = findViewById(R.id.fab_editarvc);
         fab_borrar = findViewById(R.id.fab_borrarvc);
+        fab_volver = findViewById(R.id.fab_volvervc);
         fab_guardar = findViewById(R.id.fab_guardarvc);
+        fab_guardar.setVisibility(View.INVISIBLE);
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -59,8 +61,6 @@ public class VerCliente extends AppCompatActivity {
             et_direccion.setText(cliente.getDireccion());
             et_telefono.setText(cliente.getTelefono());
 
-            fab_guardar.setVisibility(View.INVISIBLE);
-
             et_nombre.setInputType(InputType.TYPE_NULL);
             et_apellidos.setInputType(InputType.TYPE_NULL);
             et_dni.setInputType(InputType.TYPE_NULL);
@@ -74,6 +74,14 @@ public class VerCliente extends AppCompatActivity {
             Intent intent = new Intent(VerCliente.this,EditarCliente.class);
             intent.putExtra("ID", id);
             startActivity(intent);
+            finish();
+        });
+
+        //VOLVER CLIENTE
+        fab_volver.setOnClickListener(v ->{
+            Intent volverc = new Intent(this, Clientes.class);
+            finish();
+            startActivity(volverc);
         });
 
         //BORRAR CLIENTE
@@ -81,6 +89,7 @@ public class VerCliente extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(VerCliente.this);
             builder.setMessage("¿Seguro que quiere borrar el cliente?").setPositiveButton("SI", (dialog, which) -> {
                 if(dbClientes.eliminarCliente(id)){
+                    finish();
                     Volver();
                 }
             }).setNegativeButton("NO", (dialog, which) -> {

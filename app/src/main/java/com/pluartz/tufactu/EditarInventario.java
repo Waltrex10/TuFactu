@@ -15,7 +15,7 @@ import com.pluartz.tufactu.entidades.LInventario;
 public class EditarInventario extends AppCompatActivity {
 
     EditText et_nombre, et_precio;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
 
     boolean correcto = false;
     LInventario inventario;
@@ -31,6 +31,8 @@ public class EditarInventario extends AppCompatActivity {
         fab_editar.setVisibility(View.INVISIBLE);
         fab_borrar = findViewById(R.id.fab_borrarvi);
         fab_borrar.setVisibility(View.INVISIBLE);
+        fab_volver = findViewById(R.id.fab_volvervi);
+        fab_volver.setVisibility(View.INVISIBLE);
         fab_guardar = findViewById(R.id.fab_guardarvi);
 
         if (savedInstanceState == null) {
@@ -58,6 +60,7 @@ public class EditarInventario extends AppCompatActivity {
                 correcto = dbInventario.editarInventario(id, et_nombre.getText().toString(), et_precio.getText().toString());
                 if(correcto){
                     Toast.makeText(EditarInventario.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                    finish();
                     Volver();
                 } else {
                     Toast.makeText(EditarInventario.this,"Error al modificar el producto", Toast.LENGTH_LONG).show();

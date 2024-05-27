@@ -17,8 +17,7 @@ import com.pluartz.tufactu.entidades.LInventario;
 public class VerInventario extends AppCompatActivity {
 
     EditText et_nombre, et_precio;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
-
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
     LInventario inventario;
     int id = 0;
 
@@ -31,7 +30,9 @@ public class VerInventario extends AppCompatActivity {
         et_precio = findViewById(R.id.et_preciovi);
         fab_editar = findViewById(R.id.fab_editarvi);
         fab_borrar = findViewById(R.id.fab_borrarvi);
+        fab_volver = findViewById(R.id.fab_volvervi);
         fab_guardar = findViewById(R.id.fab_guardarvi);
+        fab_guardar.setVisibility(View.INVISIBLE);
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -51,8 +52,6 @@ public class VerInventario extends AppCompatActivity {
             et_nombre.setText(inventario.getNombre());
             et_precio.setText(inventario.getPrecio());
 
-            fab_guardar.setVisibility(View.INVISIBLE);
-
             et_nombre.setInputType(InputType.TYPE_NULL);
             et_precio.setInputType(InputType.TYPE_NULL);
         }
@@ -62,6 +61,14 @@ public class VerInventario extends AppCompatActivity {
             Intent intent = new Intent(VerInventario.this, EditarInventario.class);
             intent.putExtra("ID", id);
             startActivity(intent);
+            finish();
+        });
+
+        //VOLVER INVENTARIO
+        fab_volver.setOnClickListener(v ->{
+            Intent volveri = new Intent(this, Inventario.class);
+            finish();
+            startActivity(volveri);
         });
 
         //BORRAR INVENTARIO
@@ -69,6 +76,7 @@ public class VerInventario extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(VerInventario.this);
             builder.setMessage("¿Seguro que quiere eliminar el producto?").setPositiveButton("SI", (dialog, which) -> {
                 if (dbInventario.eliminarInventario(id)) {
+                    finish();
                     Volver();
                 }
             }).setNegativeButton("NO", (dialog, which) -> {

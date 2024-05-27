@@ -7,17 +7,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.pluartz.tufactu.db.DBClientes;
 import com.pluartz.tufactu.db.DBFactura;
 import com.pluartz.tufactu.entidades.LFactura;
+
+import java.util.ArrayList;
 
 //VER, EDITAR Y ELIMINAR FACTURA
 public class VerFactura extends AppCompatActivity {
 
     EditText et_numero, et_fecha, et_descripcion;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
+    Spinner spinnerDni;
+    ArrayList<String> dniList;
     LFactura factura;
     int id = 0;
 
@@ -29,8 +36,10 @@ public class VerFactura extends AppCompatActivity {
         et_numero = findViewById(R.id.et_numerovf);
         et_fecha = findViewById(R.id.et_fechavf);
         et_descripcion = findViewById(R.id.et_descripcionvf);
+        spinnerDni = findViewById(R.id.spinnervf);
         fab_editar = findViewById(R.id.fab_editarvf);
         fab_borrar = findViewById(R.id.fab_borrarvf);
+        fab_volver = findViewById(R.id.fab_volvervf);
         fab_guardar = findViewById(R.id.fab_guardarvf);
         fab_guardar.setVisibility(View.INVISIBLE);
 
@@ -45,15 +54,25 @@ public class VerFactura extends AppCompatActivity {
             id = (int) savedInstanceState.getSerializable("ID");
         }
 
+        DBClientes dbClientes = new DBClientes(this);
+        dniList = dbClientes.obtenerDniClientes();
+
         DBFactura dbFactura = new DBFactura(VerFactura.this);
         factura = dbFactura.verFactura(id);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, dniList);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
+        spinnerDni.setAdapter(adapter);
 
         if (factura != null){
             et_numero.setText(factura.getNumero());
             et_fecha.setText(factura.getFecha());
             et_descripcion.setText(factura.getDescripcion());
 
-
+            int position = dniList.indexOf(factura.getDnicliente());
+            if (position != -1) {
+                spinnerDni.setSelection(position);
+            }
 
             et_numero.setInputType(InputType.TYPE_NULL);
             et_fecha.setInputType(InputType.TYPE_NULL);
@@ -65,6 +84,14 @@ public class VerFactura extends AppCompatActivity {
             Intent intent = new Intent(VerFactura.this,EditarFactura.class);
             intent.putExtra("ID", id);
             startActivity(intent);
+            finish();
+        });
+
+        //VOLVER FACTURAS
+        fab_volver.setOnClickListener(v ->{
+            Intent volverf = new Intent(this, Facturas.class);
+            finish();
+            startActivity(volverf);
         });
 
         //BORRAR FACTURA
@@ -72,6 +99,7 @@ public class VerFactura extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(VerFactura.this);
             builder.setMessage("¿Seguro que quiere borrar la factura?").setPositiveButton("SI", (dialog, which) -> {
                 if(dbFactura.eliminarFactura(id)){
+                    finish();
                     Volver();
                 }
             }).setNegativeButton("NO", (dialog, which) -> {

@@ -61,12 +61,10 @@ public class DBUsuario extends DBHelper {
         return credencialesValidas;
     }
     //VER USUARIO
-    public LUsuario verUsuario(int id) {
+    public LUsuario verUsuario(String dni) {
         LUsuario usuario = null;
-        Cursor cursorUsuario;
-        DBHelper dbhelper = new DBHelper(context);
-        SQLiteDatabase db = dbhelper.getWritableDatabase();
-        cursorUsuario = db.rawQuery("SELECT * FROM " + TABLE_USUARIOS + " WHERE id = " + id + " LIMIT 1 ", null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursorUsuario = db.rawQuery("SELECT * FROM usuarios WHERE dni = ?", new String[]{dni});
         if (cursorUsuario.moveToFirst()) {
             usuario = new LUsuario();
             usuario.setId(cursorUsuario.getInt(0));
@@ -83,21 +81,22 @@ public class DBUsuario extends DBHelper {
         cursorUsuario.close();
         return usuario;
     }
+
     //EDITAR USUARIO
-    public boolean editarUsuario(int id, String nombre, String apellidos, String dni, String correo, String contrasena, String empresa, String telefono, String postal, String direccion){
-        boolean correcto = false;
-        DBHelper dbHelper = new DBHelper(context);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        try {
-            db.execSQL("UPDATE " + TABLE_USUARIOS + " SET nombre = '"+nombre+"', apellidos = '"+apellidos+"', dni = '"+dni+"', correo = '"+correo+"', contrasena = '"+contrasena+"', empresa = '"+empresa+"', telefono = '"+telefono+"', postal = '"+postal+"', direccion = '"+direccion+"' WHERE id='" + id + "'");
-            correcto = true;
-        } catch (Exception e){
-            e.printStackTrace();
-            correcto = false;
-        } finally {
-            db.close();
-        }
-        return correcto;
+    public boolean editarUsuario(String dni, String nombre, String apellidos, String correo, String contrasena, String empresa, String telefono, String postal, String direccion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombre", nombre);
+        values.put("apellidos", apellidos);
+        values.put("correo", correo);
+        values.put("contrasena", contrasena);
+        values.put("empresa", empresa);
+        values.put("telefono", telefono);
+        values.put("postal", postal);
+        values.put("direccion", direccion);
+
+        int rows = db.update("usuarios", values, "dni = ?", new String[]{dni});
+        return rows > 0;
     }
 
 }

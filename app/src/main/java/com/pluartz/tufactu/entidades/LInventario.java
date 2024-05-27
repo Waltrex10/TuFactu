@@ -6,7 +6,12 @@ public class LInventario extends Inventario {
     private int id;
     private String nombre;
     private String precio;
+    private String cantidad;
     private String dniusuario;
+
+    public LInventario() {
+
+    }
 
     public int getId() {
         return id;
@@ -38,5 +43,13 @@ public class LInventario extends Inventario {
 
     public void setDniusuario(String dniusuario) {
         this.dniusuario = dniusuario;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
     }
 }

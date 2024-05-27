@@ -17,7 +17,7 @@ import com.pluartz.tufactu.entidades.LPresupuesto;
 public class VerPresupuesto extends AppCompatActivity {
 
     EditText et_numero, et_fecha, et_descripcion;
-    FloatingActionButton fab_editar, fab_borrar, fab_guardar;
+    FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
     LPresupuesto presupuesto;
     int id = 0;
 
@@ -32,6 +32,7 @@ public class VerPresupuesto extends AppCompatActivity {
         et_descripcion = findViewById(R.id.et_descripcionvp);
         fab_editar = findViewById(R.id.fab_editarvp);
         fab_borrar = findViewById(R.id.fab_borrarvp);
+        fab_volver = findViewById(R.id.fab_volvervp);
         fab_guardar = findViewById(R.id.fab_guardarvp);
         fab_guardar.setVisibility(View.INVISIBLE);
 
@@ -67,13 +68,20 @@ public class VerPresupuesto extends AppCompatActivity {
             finish();
         });
 
+        //VOLVER PRESUPUESTO
+        fab_volver.setOnClickListener(v ->{
+            Intent volverp = new Intent(this, Presupuestos.class);
+            finish();
+            startActivity(volverp);
+        });
+
         //BORRAR PRESUPUESTO
         fab_borrar.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(VerPresupuesto.this);
             builder.setMessage("¿Seguro que quiere borrar el presupuesto?").setPositiveButton("SI", (dialog, which) -> {
                 if(dbPresupuesto.eliminarPresupuesto(id)){
-                    Volver();
                     finish();
+                    Volver();
                 }
             }).setNegativeButton("NO", (dialog, which) -> {
             }).show();

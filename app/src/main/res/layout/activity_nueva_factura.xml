@@ -4,66 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".NuevaFactura">
 
-    <TextView
-        android:id="@+id/tv_facturanf"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_facturanf"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/tv_blanco7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_blanco"
-        android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_numeronf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/et_numeronf"
-        android:inputType="text"
-        android:textColor="#040404"
-        android:textColorHint="#6C6A6C"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+            <TextView
+                android:id="@+id/tv_facturanf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_facturanf"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_fechanf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/et_fechanf"
-        android:inputType="text"
-        android:textColor="#040404"
-        android:textColorHint="#6C6A6C"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+            <TextView
+                android:id="@+id/tv_blanco7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_blanco"
+                android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/et_descripcionnf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/et_descripcionnf"
-        android:inputType="text"
-        android:textColor="#040404"
-        android:textColorHint="#6C6A6C"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+            <EditText
+                android:id="@+id/et_numeronf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_numeronf"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="#040404"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/but_guardarnf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/but_guardarnf"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_fechanf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_fechanf"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="#040404"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_descripcionnf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_descripcionnf"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="#040404"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinnerclientesnf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/inventario_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinnerclientesnf">
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/but_guardarnf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/but_guardarnf"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

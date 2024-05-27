@@ -2,6 +2,7 @@
     <string name="app_name">TuFactu</string>
     <string name="tv_blanco"></string>
     <string name="et_blanco">....</string>
+    <string name="fab_volver">Volver</string>
 
     <!-- menu -->
     <string name="et_facturam">Facturas</string>
