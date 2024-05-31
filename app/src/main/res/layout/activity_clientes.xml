@@ -26,7 +26,8 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:background="@drawable/transparent_background"
-            app:menu="@menu/bottom_navigation_menu">
+            app:itemActiveIndicatorStyle="@color/colorfab"
+            app:menu="@menu/bottom_navigation_menu" >
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
     </com.google.android.material.bottomappbar.BottomAppBar>
@@ -46,7 +47,6 @@
         android:id="@+id/fab_masc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginBottom="20dp"
         android:contentDescription="@string/fab_masc"
         android:src="@drawable/baseline_add_24"
@@ -57,6 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        app:backgroundTint="@color/colorfab"
         tools:ignore="MissingConstraints" />
 
     <SearchView

@@ -12,9 +12,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pluartz.tufactu.db.DBClientes;
 import com.pluartz.tufactu.entidades.LClientes;
 
+//EDITAR CLIENTE
 public class EditarCliente extends AppCompatActivity {
 
-    EditText et_nombre, et_apellidos, et_dni, et_correo, et_direccion, et_telefono;
+    EditText et_nombre, et_apellidos, et_dni, et_correo, et_telefono, et_direccion;
     FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
     boolean correcto = false;
     LClientes cliente;
@@ -29,8 +30,8 @@ public class EditarCliente extends AppCompatActivity {
         et_apellidos = findViewById(R.id.et_apellidosvc);
         et_dni = findViewById(R.id.et_dnivc);
         et_correo = findViewById(R.id.et_correovc);
-        et_direccion = findViewById(R.id.et_direccionvc);
         et_telefono = findViewById(R.id.et_telefonovc);
+        et_direccion = findViewById(R.id.et_direccionvc);
         fab_editar = findViewById(R.id.fab_editarvc);
         fab_editar.setVisibility(View.INVISIBLE);
         fab_borrar = findViewById(R.id.fab_borrarvc);
@@ -58,23 +59,27 @@ public class EditarCliente extends AppCompatActivity {
             et_apellidos.setText(cliente.getApellidos());
             et_dni.setText(cliente.getDni());
             et_correo.setText(cliente.getCorreo());
-            et_direccion.setText(cliente.getDireccion());
             et_telefono.setText(cliente.getTelefono());
+            et_direccion.setText(cliente.getDireccion());
 
         }
 
+        //GUARDAR
         fab_guardar.setOnClickListener(v -> {
             if(!et_nombre.getText().toString().equals("") && !et_apellidos.getText().toString().equals("")){
-                correcto = dbClientes.editarCliente(id, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_dni.getText().toString(), et_correo.getText().toString(), et_direccion.getText().toString(), et_telefono.getText().toString());
+                correcto = dbClientes.editarCliente(id, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_dni.getText().toString(), et_correo.getText().toString(), et_telefono.getText().toString(), et_direccion.getText().toString());
                 if(correcto){
-                    Toast.makeText(EditarCliente.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                    String remoc = getString(R.string.remoc);
+                    Toast.makeText(EditarCliente.this, remoc, Toast.LENGTH_LONG).show();
                     finish();
                     Volver();
                 } else {
-                    Toast.makeText(EditarCliente.this,"Error al modificar cliente", Toast.LENGTH_LONG).show();
+                    String mocli = getString(R.string.mocli);
+                    Toast.makeText(EditarCliente.this,mocli, Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(EditarCliente.this,"Debe llenar los campos", Toast.LENGTH_LONG).show();
+                String llenarcli = getString(R.string.llenarcli);
+                Toast.makeText(EditarCliente.this,llenarcli, Toast.LENGTH_LONG).show();
             }
         });
 

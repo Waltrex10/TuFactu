@@ -7,51 +7,62 @@
     android:orientation="vertical"
     tools:context=".NuevoInventario">
 
-    <TextView
-        android:id="@+id/tv_inventarioni"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_inventarioni"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/tv_blanco7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_blanco"
-        android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_nombreni"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/et_nombreni"
-        android:inputType="text"
-        android:textColor="#040404"
-        android:textColorHint="#6C6A6C"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+            <TextView
+                android:id="@+id/tv_inventarioni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_inventarioni"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_precioni"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/et_precioni"
-        android:inputType="text"
-        android:textColor="#040404"
-        android:textColorHint="#6C6A6C"
-        android:textSize="20sp"
-        android:importantForAutofill="no" />
+            <TextView
+                android:id="@+id/tv_blanco7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_blanco"
+                android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/but_guardarni"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/but_guardarni"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+            <EditText
+                android:id="@+id/et_nombreni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_nombreni"
+                android:inputType="text"
+                android:textColor="#040404"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/et_precioni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_precioni"
+                android:inputType="text"
+                android:textColor="#040404"
+                android:textColorHint="#6C6A6C"
+                android:textSize="20sp"
+                android:importantForAutofill="no" />
+
+            <Button
+                android:id="@+id/but_guardarni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/but_guardarni"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

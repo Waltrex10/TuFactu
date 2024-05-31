@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.pluartz.tufactu.entidades.LFactura;
 import com.pluartz.tufactu.entidades.LPresupuesto;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class DBPresupuesto extends DBHelper {
     }
 
     //INSERTAR PRESUPUESTO
-    public long insertarPresupuesto(String numero, String fecha, String descripcion, String dniusuario){
+    public long insertarPresupuesto(String numero, String fecha, String descripcion, String dnicliente, String dniusuario){
         long id = 0;
         try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
@@ -32,7 +31,9 @@ public class DBPresupuesto extends DBHelper {
             values.put("numero", numero);
             values.put("fecha", fecha);
             values.put("descripcion", descripcion);
+            values.put("dnicliente", dnicliente);
             values.put("dniusuario", dniusuario);
+
             id = db.insert(TABLE_PRESUPUESTO, null, values);
         } catch (Exception ex){
             ex.printStackTrace();
@@ -54,7 +55,8 @@ public class DBPresupuesto extends DBHelper {
                     presupuesto.setNumero(cursorPresupuesto.getString(1));
                     presupuesto.setFecha(cursorPresupuesto.getString(2));
                     presupuesto.setDescripcion(cursorPresupuesto.getString(3));
-                    presupuesto.setDniusuario(cursorPresupuesto.getString(4));
+                    presupuesto.setDnicliente(cursorPresupuesto.getString(4));
+                    presupuesto.setDniusuario(cursorPresupuesto.getString(5));
                     listaPresupuesto.add(presupuesto);
                 } while (cursorPresupuesto.moveToNext());
             } else {
@@ -82,13 +84,15 @@ public class DBPresupuesto extends DBHelper {
             presupuesto.setNumero(cursorPresupuesto.getString(1));
             presupuesto.setFecha(cursorPresupuesto.getString(2));
             presupuesto.setDescripcion(cursorPresupuesto.getString(3));
-            presupuesto.setDniusuario(cursorPresupuesto.getString(4));
+            presupuesto.setDnicliente(cursorPresupuesto.getString(4));
+            presupuesto.setDniusuario(cursorPresupuesto.getString(5));
         }
         cursorPresupuesto.close();
         return presupuesto;
     }
+
     //EDITAR PRESUPUESTO
-    public boolean editarPresuspuesto(int id, String numero, String fecha, String descripcion){
+    public boolean editarPresuspuesto(int id, String numero, String fecha, String descripcion, String dnicliente){
         boolean correcto = false;
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
@@ -104,6 +108,7 @@ public class DBPresupuesto extends DBHelper {
         }
         return correcto;
     }
+
     //ELIMINAR PRESUPUESTO
     public boolean eliminarPresupuesto(int id){
         boolean correcto = false;

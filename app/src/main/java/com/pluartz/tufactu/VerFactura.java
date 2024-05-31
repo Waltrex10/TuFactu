@@ -96,13 +96,16 @@ public class VerFactura extends AppCompatActivity {
 
         //BORRAR FACTURA
         fab_borrar.setOnClickListener(v -> {
+            String segurof = getString(R.string.segurof);
+            String segurosif = getString(R.string.segurosif);
+            String seguronof = getString(R.string.seguronof);
             AlertDialog.Builder builder = new AlertDialog.Builder(VerFactura.this);
-            builder.setMessage("¿Seguro que quiere borrar la factura?").setPositiveButton("SI", (dialog, which) -> {
+            builder.setMessage(segurof).setPositiveButton(segurosif, (dialog, which) -> {
                 if(dbFactura.eliminarFactura(id)){
                     finish();
                     Volver();
                 }
-            }).setNegativeButton("NO", (dialog, which) -> {
+            }).setNegativeButton(seguronof, (dialog, which) -> {
             }).show();
         });
 

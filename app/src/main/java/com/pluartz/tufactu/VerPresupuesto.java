@@ -7,17 +7,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.pluartz.tufactu.db.DBClientes;
 import com.pluartz.tufactu.db.DBPresupuesto;
 import com.pluartz.tufactu.entidades.LPresupuesto;
+
+import java.util.ArrayList;
 
 //VER, EDITAR Y ELIMINAR PRESUPUESTO
 public class VerPresupuesto extends AppCompatActivity {
 
     EditText et_numero, et_fecha, et_descripcion;
     FloatingActionButton fab_editar, fab_borrar, fab_guardar, fab_volver;
+
+    Spinner spinnerDni;
+    ArrayList<String> dniList;
     LPresupuesto presupuesto;
     int id = 0;
 
@@ -30,6 +38,7 @@ public class VerPresupuesto extends AppCompatActivity {
         et_numero = findViewById(R.id.et_numerovp);
         et_fecha = findViewById(R.id.et_fechavp);
         et_descripcion = findViewById(R.id.et_descripcionvp);
+        spinnerDni = findViewById(R.id.spinnervp);
         fab_editar = findViewById(R.id.fab_editarvp);
         fab_borrar = findViewById(R.id.fab_borrarvp);
         fab_volver = findViewById(R.id.fab_volvervp);
@@ -47,13 +56,25 @@ public class VerPresupuesto extends AppCompatActivity {
             id = (int) savedInstanceState.getSerializable("ID");
         }
 
+        DBClientes dbClientes = new DBClientes(this);
+        dniList = dbClientes.obtenerDniClientes();
+
         DBPresupuesto dbPresupuesto = new DBPresupuesto(VerPresupuesto.this);
         presupuesto = dbPresupuesto.verPresupuesto(id);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, dniList);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
+        spinnerDni.setAdapter(adapter);
 
         if (presupuesto != null){
             et_numero.setText(presupuesto.getNumero());
             et_fecha.setText(presupuesto.getFecha());
             et_descripcion.setText(presupuesto.getDescripcion());
+
+            int position = dniList.indexOf(presupuesto.getDnicliente());
+            if (position != -1) {
+                spinnerDni.setSelection(position);
+            }
 
             et_numero.setInputType(InputType.TYPE_NULL);
             et_fecha.setInputType(InputType.TYPE_NULL);
@@ -77,13 +98,16 @@ public class VerPresupuesto extends AppCompatActivity {
 
         //BORRAR PRESUPUESTO
         fab_borrar.setOnClickListener(v -> {
+            String segurop = getString(R.string.segurop);
+            String segurosip = getString(R.string.segurosip);
+            String seguronop = getString(R.string.seguronop);
             AlertDialog.Builder builder = new AlertDialog.Builder(VerPresupuesto.this);
-            builder.setMessage("¿Seguro que quiere borrar el presupuesto?").setPositiveButton("SI", (dialog, which) -> {
+            builder.setMessage(segurop).setPositiveButton(segurosip, (dialog, which) -> {
                 if(dbPresupuesto.eliminarPresupuesto(id)){
                     finish();
                     Volver();
                 }
-            }).setNegativeButton("NO", (dialog, which) -> {
+            }).setNegativeButton(seguronop, (dialog, which) -> {
             }).show();
         });
 

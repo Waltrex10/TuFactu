@@ -15,7 +15,7 @@ import com.pluartz.tufactu.db.DBUsuario;
 
 import java.io.ByteArrayOutputStream;
 
-//Realizar el registro del usuario
+//REGISTRO DE USUARIO
 public class Registro extends AppCompatActivity {
 
     private EditText et_nombre, et_apellidos, et_dni, et_mail, et_contrasena, et_concontrasena, et_nombreempresa, et_telefono, et_postal, et_direccion, et_captcha;
@@ -43,7 +43,7 @@ public class Registro extends AppCompatActivity {
 
         but_logo.setOnClickListener(v -> seleccionarImagen());
 
-        //Realizar el registro
+        //REGISTRO
         but_registro.setOnClickListener(v -> {
             try {
                 String dni = et_dni.getText().toString();
@@ -53,26 +53,33 @@ public class Registro extends AppCompatActivity {
 
                 try (DBUsuario dbUsuario = new DBUsuario(Registro.this)) {
                     if (dbUsuario.existeUsuarioConDNI(dni)) {
-                        Toast.makeText(Registro.this, "El usuario con este DNI ya está registrado", Toast.LENGTH_SHORT).show();
+                        String mensajeD = getString(R.string.usuarioregistrado);
+                        Toast.makeText(Registro.this, mensajeD, Toast.LENGTH_SHORT).show();
                     } else if (!dniValido(dni)){
-                        Toast.makeText(Registro.this, "El DNI no es válido", Toast.LENGTH_SHORT).show();
+                        String mensajeDV = getString(R.string.dninovalido);
+                        Toast.makeText(Registro.this, mensajeDV, Toast.LENGTH_SHORT).show();
                     } else if (!contrasenaCorrecta(contrasena)){
-                        Toast.makeText(Registro.this, "La contraseña tiene que tener al menos 3 caracteres incluyendo letras mayúsculas, minúsculas y números", Toast.LENGTH_SHORT).show();
+                        String mensajeCE = getString(R.string.contrasenacaracteres);
+                        Toast.makeText(Registro.this, mensajeCE, Toast.LENGTH_SHORT).show();
                     } else if (!contrasena.equals(concontrasena)){
-                        Toast.makeText(Registro.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                        String mensajeCC = getString(R.string.contrasenanocoincide);
+                        Toast.makeText(Registro.this, mensajeCC, Toast.LENGTH_SHORT).show();
                     } else if (!captcha.equals("1234")){
-                        Toast.makeText(Registro.this, "Captcha incorrecto", Toast.LENGTH_SHORT).show();
+                        String mensajeCI = getString(R.string.captchain);
+                        Toast.makeText(Registro.this, mensajeCI, Toast.LENGTH_SHORT).show();
                     } else {
                         try (DBUsuario dbusuario = new DBUsuario(Registro.this)){
                             long id = dbusuario.insertaUsuario(et_nombre.getText().toString(),et_apellidos.getText().toString(),et_dni.getText().toString(),et_mail.getText().toString(),et_contrasena.getText().toString(),et_nombreempresa.getText().toString(),et_telefono.getText().toString(),et_postal.getText().toString(),et_direccion.getText().toString(), imagenBytes);
 
                             if (id > 0) {
-                                Toast.makeText(Registro.this, "REGISTRO GUARDADO", Toast.LENGTH_LONG).show();
+                                String mensajeRG = getString(R.string.regu);
+                                Toast.makeText(Registro.this, mensajeRG, Toast.LENGTH_LONG).show();
                                 limpiar();
                                 Intent regresar = new Intent(Registro.this, MainActivity.class);
                                 startActivity(regresar);
                             } else {
-                                Toast.makeText(Registro.this, "ERROR AL REGISTRARSE", Toast.LENGTH_LONG).show();
+                                String mensajeER = getString(R.string.reer);
+                                Toast.makeText(Registro.this, mensajeER, Toast.LENGTH_LONG).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -90,7 +97,7 @@ public class Registro extends AppCompatActivity {
         });
     }
 
-    //Validar el dni
+    //VALIDAR DNI
     private boolean dniValido(String dni) {
         if (dni.length() != 9 || !dni.matches("\\d{8}[A-Za-z]")) {
             return false;
@@ -100,16 +107,17 @@ public class Registro extends AppCompatActivity {
         char letraControl = dni.charAt(8);
 
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-        char letraEsperada = letras.charAt(numeroDNI % 23);
 
+        char letraEsperada = letras.charAt(numeroDNI % 23);
         return letraControl == letraEsperada;
     }
 
-    //Validar la contraseña
+    //VALIDAR CONTRASEÑA
     private boolean contrasenaCorrecta(String contrasena) {
         return contrasena.length() > 3 && contrasena.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
     }
-    //Seleccionar la imagen
+
+    //SELECCIONAR IMAGEN
     private void seleccionarImagen() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -117,7 +125,7 @@ public class Registro extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), PICK_IMAGE);
     }
 
-    //Proceso para poder guardar la imagen del logo en la base de datos
+    //GUARDAR IMAGEN
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -128,19 +136,18 @@ public class Registro extends AppCompatActivity {
                 imagenBytes = convertirBitmapABytes(bitmap);
             } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                String mensajeI = getString(R.string.errorImagen);
+                Toast.makeText(this, mensajeI, Toast.LENGTH_SHORT).show();
             }
         }
     }
-    //Para guardarlo a la base de datos
     private byte[] convertirBitmapABytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         return stream.toByteArray();
     }
 
-
-    //Limpiar los plaintext
+    //LIMPIAR
     private void limpiar(){
         et_nombre.setText("");
         et_apellidos.setText("");
@@ -153,7 +160,6 @@ public class Registro extends AppCompatActivity {
         et_postal.setText("");
         et_direccion.setText("");
         et_captcha.setText("");
-
     }
 
 }

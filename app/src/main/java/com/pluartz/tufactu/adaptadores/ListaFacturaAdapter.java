@@ -11,9 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pluartz.tufactu.R;
-import com.pluartz.tufactu.VerCliente;
 import com.pluartz.tufactu.VerFactura;
-import com.pluartz.tufactu.entidades.LClientes;
 import com.pluartz.tufactu.entidades.LFactura;
 
 import java.util.ArrayList;

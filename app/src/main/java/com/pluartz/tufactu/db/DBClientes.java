@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.pluartz.tufactu.entidades.LClientes;
-import com.pluartz.tufactu.entidades.LUsuario;
 
 import java.util.ArrayList;
 
@@ -57,8 +56,8 @@ public class DBClientes extends DBHelper {
                     cliente.setApellidos(cursorClientes.getString(2));
                     cliente.setDni(cursorClientes.getString(3));
                     cliente.setCorreo(cursorClientes.getString(4));
-                    cliente.setDireccion(cursorClientes.getString(5));
-                    cliente.setTelefono(cursorClientes.getString(6));
+                    cliente.setTelefono(cursorClientes.getString(5));
+                    cliente.setDireccion(cursorClientes.getString(6));
                     cliente.setDniusuario(cursorClientes.getString(7));
                     listaClientes.add(cliente);
                 } while (cursorClientes.moveToNext());
@@ -88,15 +87,15 @@ public class DBClientes extends DBHelper {
             cliente.setApellidos(cursorClientes.getString(2));
             cliente.setDni(cursorClientes.getString(3));
             cliente.setCorreo(cursorClientes.getString(4));
-            cliente.setDireccion(cursorClientes.getString(5));
-            cliente.setTelefono(cursorClientes.getString(6));
+            cliente.setTelefono(cursorClientes.getString(5));
+            cliente.setDireccion(cursorClientes.getString(6));
             cliente.setDniusuario(cursorClientes.getString(7));
         }
         cursorClientes.close();
         return cliente;
     }
     //EDITAR CLIENTE
-    public boolean editarCliente(int id, String nombre, String apellidos, String dni, String correo,  String direccion, String telefono){
+    public boolean editarCliente(int id, String nombre, String apellidos, String dni, String correo, String telefono,  String direccion){
         boolean correcto = false;
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
@@ -152,6 +151,7 @@ public class DBClientes extends DBHelper {
         return listaDni;
     }
 
+    //OBTENER LOS CLIENTES MEDIANTE EL DNI
     public LClientes obtenerClientePorDNI(String dni) {
         LClientes cliente = null;
         SQLiteDatabase db = this.getReadableDatabase();

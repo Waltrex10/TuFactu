@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.pluartz.tufactu.db.DBUsuario;
 import com.pluartz.tufactu.entidades.LUsuario;
 
+//AJUSTES DE USUARIO
 public class AjustesUsuario extends AppCompatActivity {
 
     private EditText et_nombre, et_apellidos, et_correo, et_contrasena, et_concontrasena, et_nombreempresa, et_telefono, et_postal, et_direccion;
@@ -39,7 +40,8 @@ public class AjustesUsuario extends AppCompatActivity {
         dni = sharedPref.getString("dniusuario", null);
 
         if (dni == null) {
-            Toast.makeText(this, "DNI de usuario no válido", Toast.LENGTH_LONG).show();
+            String errora1 = getString(R.string.errora1);
+            Toast.makeText(this, errora1, Toast.LENGTH_LONG).show();
             finish();
             return;
         }
@@ -57,35 +59,49 @@ public class AjustesUsuario extends AppCompatActivity {
             et_postal.setText(usuario.getPostal());
             et_direccion.setText(usuario.getDireccion());
         } else {
-            Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_LONG).show();
+            String errora2 = getString(R.string.errora2);
+            Toast.makeText(this, errora2, Toast.LENGTH_LONG).show();
             finish();
         }
 
+        //GUARDAR EL USUARIO
         Button but_guardar = findViewById(R.id.but_guardara);
         but_guardar.setOnClickListener(v -> {
             String contrasena = et_contrasena.getText().toString();
             String concontrasena = et_concontrasena.getText().toString();
             if (!contrasenaCorrecta(contrasena)){
-                Toast.makeText(AjustesUsuario.this, "La contraseña tiene que tener al menos 3 caracteres incluyendo letras mayúsculas, minúsculas y números", Toast.LENGTH_SHORT).show();
+                String contrasenacaracteresa = getString(R.string.contrasenacaracteresa);
+                Toast.makeText(AjustesUsuario.this, contrasenacaracteresa, Toast.LENGTH_SHORT).show();
             } else if (!contrasena.equals(concontrasena)){
-                Toast.makeText(AjustesUsuario.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                String contrasenanocoincidea = getString(R.string.contrasenanocoincidea);
+                Toast.makeText(AjustesUsuario.this, contrasenanocoincidea, Toast.LENGTH_SHORT).show();
             } else {
                 if (!et_nombre.getText().toString().equals("") && !et_apellidos.getText().toString().equals("")) {
                     correcto = dbUsuario.editarUsuario(dni, et_nombre.getText().toString(), et_apellidos.getText().toString(), et_correo.getText().toString(), et_contrasena.getText().toString(), et_nombreempresa.getText().toString(), et_telefono.getText().toString(), et_postal.getText().toString(), et_direccion.getText().toString());
                     if (correcto) {
-                        Toast.makeText(AjustesUsuario.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                        String registrom = getString(R.string.registrom);
+                        Toast.makeText(AjustesUsuario.this, registrom, Toast.LENGTH_LONG).show();
                         limpiar();
                         Volver();
                     } else {
-                        Toast.makeText(AjustesUsuario.this, "Error al modificar cliente", Toast.LENGTH_LONG).show();
+                        String ermodificarus = getString(R.string.ermodificarus);
+                        Toast.makeText(AjustesUsuario.this, ermodificarus, Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    Toast.makeText(AjustesUsuario.this, "Debe llenar los campos", Toast.LENGTH_LONG).show();
+                    String llenarcampos = getString(R.string.llenarcampos);
+                    Toast.makeText(AjustesUsuario.this, llenarcampos, Toast.LENGTH_LONG).show();
                 }
             }
         });
 
+        //BOTON VOLVER
+        Button but_volver = findViewById(R.id.but_volvera);
+        but_volver.setOnClickListener(v ->{
+            Volver();
+        });
+
     }
+
 
     //VOLVER
     private void Volver(){

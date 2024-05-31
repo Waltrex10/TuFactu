@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TuFactu</string>
-    <string name="tv_blanco"></string>
+    <string name="tv_blanco"> </string>
     <string name="et_blanco">....</string>
     <string name="fab_volver">Volver</string>
 
@@ -91,10 +91,10 @@
     <string name="et_concontrasenaa">Confirmar contraseña</string>
     <string name="et_nombreempresaa">Nombre de la empresa</string>
     <string name="et_telefonoa">Número de teléfono</string>
-    <string name="et_postala">Código postal</string>
     <string name="et_direcciona">Dirección</string>
-    <string name="but_logoa">Logo</string>
+    <string name="et_postala">Código postal</string>
     <string name="but_guardara">Guardar</string>
+    <string name="but_volvera">Volver</string>
 
     <!-- facturas -->
     <string name="fab_masf">Añadir facturas</string>
@@ -133,5 +133,127 @@
     <string name="fab_editarvp">Editar presupuesto</string>
     <string name="fab_borrarvp">Borrar presupuesto</string>
     <string name="fab_guardarvp">Guardar presupuesto</string>
+
+    <!-- Java -->
+    <!-- MainActivity -->
+    <string name="incorrecto">DNI o contraseña incorrectos</string>
+
+    <!-- Registro -->
+    <string name="errorImagen">Error al cargar la imagen</string>
+    <string name="usuarioregistrado">El usuario con este DNI ya está registrado</string>
+    <string name="dninovalido">El DNI no es válido</string>
+    <string name="contrasenacaracteres">La contraseña tiene que tener mayúsculas, minúsculas y números</string>
+    <string name="contrasenanocoincide">Las contraseñas no coinciden</string>
+    <string name="captchain">Captcha incorrecto</string>
+    <string name="regu">REGISTRO GUARDADO</string>
+    <string name="reer">ERROR AL REGISTRARSE</string>
+
+    <!-- AjustesUsuario -->
+    <string name="errora1">DNI de usuario no válido</string>
+    <string name="errora2">Usuario no encontrado</string>
+    <string name="contrasenacaracteresa">La contraseña tiene que tener mayúsculas, minúsculas y números</string>
+    <string name="contrasenanocoincidea">Las contraseñas no coinciden</string>
+    <string name="registrom">Registro modificado</string>
+    <string name="ermodificarus">Error al modificar usuario</string>
+    <string name="llenarcampos">Debe llenar los campos</string>
+
+    <!-- NuevoCliente -->
+    <string name="guardadoc">Cliente guardado</string>
+    <string name="errorc">Error al guardar</string>
+
+    <!-- EditarCliente -->
+    <string name="remoc">Registro modificado</string>
+    <string name="mocli">Error al modificar cliente</string>
+    <string name="llenarcli">Debe llenar los campos</string>
+
+    <!-- VerCliente -->
+    <string name="seguroc">¿Seguro que quiere borrar el cliente?</string>
+    <string name="segurosic">SI</string>
+    <string name="seguronoc">NO</string>
+
+    <!-- NuevoInventario -->
+    <string name="guardadoi">Inventario guardado</string>
+    <string name="errori">Error al guardar</string>
+
+    <!-- EditarInventario -->
+    <string name="remoi">Registro modificado</string>
+    <string name="moinv">Error al modificar producto</string>
+    <string name="llenarinv">Debe llenar los campos</string>
+
+    <!-- VerInventario -->
+    <string name="seguroi">¿Seguro que quiere borrar el producto?</string>
+    <string name="segurosii">SI</string>
+    <string name="seguronoi">NO</string>
+
+    <!-- NuevaFactura -->
+    <string name="guardadof">Factura guardada</string>
+    <string name="errorf">Error al guardar</string>
+    <string name="preciof">Precio</string>
+    <string name="cantidadf">Cantidad</string>
+    <string name="codigoff">Código:</string>
+    <string name="nombreff">Nombre:</string>
+    <string name="precioff">Precio:</string>
+    <string name="cantidadff">Unidades:</string>
+    <string name="subtotalf">Importe:</string>
+    <string name="errorf1">No se pudo obtener la información del usuario o cliente</string>
+    <string name="enviarcorreo">Enviando correo</string>
+    <string name="nohaycli">No hay clientes en el correo</string>
+    <string name="datosf">Datos de la factura</string>
+    <string name="inffa">Información de la factura:</string>
+    <string name="fechaf">Fecha:</string>
+    <string name="nf">Nº de factura:</string>
+    <string name="descripf">Descripción:</string>
+    <string name="infemf">Información de la empresa:</string>
+    <string name="infclif">Información del cliente:</string>
+    <string name="prof">Productos:</string>
+    <string name="totalf">Total:</string>
+    <string name="ivaf">IVA 21%:</string>
+    <string name="totalivaf">Total con IVA:</string>
+
+
+    <!-- EditarFactura -->
+    <string name="remof">Registro modificado</string>
+    <string name="mofac">Error al modificar factura</string>
+    <string name="llenarfac">Debe llenar los campos</string>
+
+    <!-- VerFactura -->
+    <string name="segurof">¿Seguro que quiere borrar la factura?</string>
+    <string name="segurosif">SI</string>
+    <string name="seguronof">NO</string>
+
+    <!-- NuevoPresupuesto -->
+    <string name="guardadop">Presupuesto guardado</string>
+    <string name="errorp">Error al guardar</string>
+    <string name="preciop">Precio</string>
+    <string name="cantidadp">Cantidad</string>
+    <string name="codigofp">Código:</string>
+    <string name="nombrefp">Nombre:</string>
+    <string name="preciofp">Precio:</string>
+    <string name="cantidadfp">Unidades:</string>
+    <string name="subtotalp">Importe:</string>
+    <string name="errorp1">No se pudo obtener la información del usuario o cliente</string>
+    <string name="enviarcorreop">Enviando correo</string>
+    <string name="nohayclip">No hay clientes en el correo</string>
+    <string name="datosp">Datos del presupuesto</string>
+    <string name="infpre">Información del presupuesto:</string>
+    <string name="fechap">Fecha:</string>
+    <string name="np">Nº de presupuesto:</string>
+    <string name="descripp">Descripción:</string>
+    <string name="infemp">Información de la empresa:</string>
+    <string name="infclip">Información del cliente:</string>
+    <string name="prop">Productos:</string>
+    <string name="totalp">Total:</string>
+    <string name="ivap">IVA 21%:</string>
+    <string name="totalivap">Total con IVA:</string>
+
+    <!-- EditarPresupuesto -->
+    <string name="remop">Registro modificado</string>
+    <string name="mopre">Error al modificar presupuesto</string>
+    <string name="llenarpre">Debe llenar los campos</string>
+
+    <!-- VerPresupuesto -->
+    <string name="segurop">¿Seguro que quiere borrar el presupuesto?</string>
+    <string name="segurosip">SI</string>
+    <string name="seguronop">NO</string>
 
 </resources>

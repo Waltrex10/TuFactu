@@ -3,7 +3,6 @@ package com.pluartz.tufactu;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -86,13 +85,16 @@ public class VerCliente extends AppCompatActivity {
 
         //BORRAR CLIENTE
         fab_borrar.setOnClickListener(v -> {
+            String segurocc = getString(R.string.seguroc);
+            String segurosicc = getString(R.string.segurosic);
+            String seguronocc = getString(R.string.seguronoc);
             AlertDialog.Builder builder = new AlertDialog.Builder(VerCliente.this);
-            builder.setMessage("¿Seguro que quiere borrar el cliente?").setPositiveButton("SI", (dialog, which) -> {
+            builder.setMessage(segurocc).setPositiveButton(segurosicc, (dialog, which) -> {
                 if(dbClientes.eliminarCliente(id)){
                     finish();
                     Volver();
                 }
-            }).setNegativeButton("NO", (dialog, which) -> {
+            }).setNegativeButton(seguronocc, (dialog, which) -> {
 
             }).show();
         });

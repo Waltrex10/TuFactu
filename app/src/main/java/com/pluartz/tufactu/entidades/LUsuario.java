@@ -14,7 +14,6 @@ public class LUsuario  extends Registro {
     private String postal;
     private String direccion;
 
-
     public int getId() {
         return id;
     }

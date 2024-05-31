@@ -17,6 +17,7 @@ import com.pluartz.tufactu.entidades.LFactura;
 
 import java.util.ArrayList;
 
+//EDITAR FACTURA
 public class EditarFactura extends AppCompatActivity {
 
     EditText et_numero, et_fecha, et_descripcion;
@@ -76,25 +77,28 @@ public class EditarFactura extends AppCompatActivity {
             spinnerDni.setSelection(position);
         }
 
+        //GUARDAR
         fab_guardar.setOnClickListener(v -> {
             String dniClienteSeleccionado = (String) spinnerDni.getSelectedItem();
             if(!et_numero.getText().toString().equals("") && !et_fecha.getText().toString().equals("")){
                 correcto = dbFactura.editarFactura(id, et_numero.getText().toString(), et_fecha.getText().toString(), et_descripcion.getText().toString(), dniClienteSeleccionado);
                 if(correcto){
-                    Toast.makeText(EditarFactura.this, "Registro modificado", Toast.LENGTH_LONG).show();
+                    String remof = getString(R.string.remof);
+                    Toast.makeText(EditarFactura.this, remof, Toast.LENGTH_LONG).show();
                     finish();
                     Volver();
                 } else {
-                    Toast.makeText(EditarFactura.this,"Error al modificar la factura", Toast.LENGTH_LONG).show();
+                    String mofac = getString(R.string.mofac);
+                    Toast.makeText(EditarFactura.this,mofac, Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(EditarFactura.this,"Debe llenar los campos", Toast.LENGTH_LONG).show();
+                String llenarfac = getString(R.string.llenarfac);
+                Toast.makeText(EditarFactura.this,llenarfac, Toast.LENGTH_LONG).show();
             }
         });
 
     }
 
-    //Volver a inventario
     private void Volver(){
         Intent intent = new Intent(this, VerFactura.class);
         intent.putExtra("ID", id);

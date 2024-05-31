@@ -14,15 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.pluartz.tufactu.adaptadores.ListaClientesAdapter;
 import com.pluartz.tufactu.adaptadores.ListaFacturaAdapter;
 import com.pluartz.tufactu.db.DBFactura;
-import com.pluartz.tufactu.entidades.LClientes;
 import com.pluartz.tufactu.entidades.LFactura;
 
 import java.util.ArrayList;
 
-
+//AGREGAR Y MOSTRAR FACTURA
 public class Facturas extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     SearchView buscar;
@@ -44,11 +42,13 @@ public class Facturas extends AppCompatActivity implements SearchView.OnQueryTex
         adapterf = new ListaFacturaAdapter(dbFactura.mostrarFactura());
         listaFacturas.setAdapter(adapterf);
 
+        //AGREGAR FACTURA
         FloatingActionButton fab_anadir = findViewById(R.id.fab_masf);
         fab_anadir.setOnClickListener(v -> startActivity(new Intent(Facturas.this, NuevaFactura.class)));
 
         buscar.setOnQueryTextListener(this);
 
+        //MENU DE ABAJO
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_request_page);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.pluartz.tufactu.entidades.LClientes;
 import com.pluartz.tufactu.entidades.LUsuario;
 
 //BASE DE DATOS USUARIO
@@ -75,8 +74,8 @@ public class DBUsuario extends DBHelper {
             usuario.setContrasena(cursorUsuario.getString(5));
             usuario.setEmpresa(cursorUsuario.getString(6));
             usuario.setTelefono(cursorUsuario.getString(7));
-            usuario.setDireccion(cursorUsuario.getString(8));
-            usuario.setPostal(cursorUsuario.getString(9));
+            usuario.setPostal(cursorUsuario.getString(8));
+            usuario.setDireccion(cursorUsuario.getString(9));
         }
         cursorUsuario.close();
         return usuario;

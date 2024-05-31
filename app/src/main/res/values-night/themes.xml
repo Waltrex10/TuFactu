@@ -1,4 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.TuFactu" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#27AE60</item>
+        <item name="colorPrimaryVariant">#27AE60</item>
+        <item name="colorOnPrimary">#27AE60</item>
+        <item name="colorSecondary">#229954</item>
+        <item name="colorSecondaryVariant">#229954</item>
+        <item name="colorOnSecondary">#229954</item>
     </style>
+    <style name="Theme.TuFactu" parent="Base.Theme.TuFactu" />
 </resources>

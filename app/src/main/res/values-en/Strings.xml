@@ -92,15 +92,15 @@
     <string name="et_concontrasenaa">Confirm Password</string>
     <string name="et_nombreempresaa">Company name</string>
     <string name="et_telefonoa">Phone number</string>
-    <string name="et_postala">Postal Codec</string>
     <string name="et_direcciona">Address</string>
-    <string name="but_logoa">Logo</string>
+    <string name="et_postala">Postal Codec</string>
     <string name="but_guardara">Save</string>
+    <string name="but_volvera">Return</string>
 
     <!-- facturas -->
     <string name="fab_masf">Add invoices</string>
 
-    <!-- nuevofactura -->
+    <!-- nuevafactura -->
     <string name="tv_facturanf"><u>Invoice details:</u></string>
     <string name="et_numeronf">Number</string>
     <string name="et_fechanf">Date</string>
@@ -134,5 +134,126 @@
     <string name="fab_editarvp">Edit budget</string>
     <string name="fab_borrarvp">Delete budget</string>
     <string name="fab_guardarvp">Save budget</string>
+
+    <!-- Java -->
+    <!-- MainActivity -->
+    <string name="incorrecto">Incorrect ID or password</string>
+
+    <!-- Registro -->
+    <string name="errorImagen">Error loading image</string>
+    <string name="usuarioregistrado">The user with this ID is already registered</string>
+    <string name="dninovalido">The ID is not valid</string>
+    <string name="contrasenacaracteres">The password must have uppercase, lowercase and numbers</string>
+    <string name="contrasenanocoincide">Passwords do not match</string>
+    <string name="captchain">Incorrect captcha</string>
+    <string name="regu">SAVED RECORD</string>
+    <string name="reer">REGISTRATION ERROR</string>
+
+    <!-- AjustesUsuario -->
+    <string name="errora1">Invalid user ID</string>
+    <string name="errora2">User not found</string>
+    <string name="contrasenacaracteresa">The password must have uppercase, lowercase and numbers</string>
+    <string name="contrasenanocoincidea">Passwords do not match</string>
+    <string name="registrom">Modified record</string>
+    <string name="ermodificarus">Error modifying user</string>
+    <string name="llenarcampos">You must fill out the fields</string>
+
+    <!-- Nuevo cliente -->
+    <string name="guardadoc">Saved Client</string>
+    <string name="errorc">Error saving</string>
+
+    <!-- EditarCliente -->
+    <string name="remoc">Modified record</string>
+    <string name="mocli">Error modifying client</string>
+    <string name="llenarcli">You must fill out the fields</string>
+
+    <!-- VerCliente -->
+    <string name="seguroc">Are you sure you want to delete the client?</string>
+    <string name="segurosic">YES</string>
+    <string name="seguronoc">NO</string>
+
+    <!-- NuevoInventario -->
+    <string name="guardadoi">Saved Inventory</string>
+    <string name="errori">Error saving</string>
+
+    <!-- EditarInventario -->
+    <string name="remoi">Modified record</string>
+    <string name="moinv">Error modifying product</string>
+    <string name="llenarinv">You must fill out the fields</string>
+
+    <!-- VerInventario -->
+    <string name="seguroi">Are you sure you want to delete the product?</string>
+    <string name="segurosii">YES</string>
+    <string name="seguronoi">NO</string>
+
+    <!-- NuevaFactura -->
+    <string name="guardadof">Saved invoice</string>
+    <string name="errorf">Error saving</string>
+    <string name="preciof">Precio</string>
+    <string name="cantidadf">Units</string>
+    <string name="codigoff">Code:</string>
+    <string name="nombreff">Name:</string>
+    <string name="precioff">Price:</string>
+    <string name="cantidadff">Units:</string>
+    <string name="subtotalf">Amount:</string>
+    <string name="errorf1">Could not obtain user or customer information</string>
+    <string name="enviarcorreo">Sending mail</string>
+    <string name="nohaycli">There are no clients in the mail</string>
+    <string name="datosf">Invoice data</string>
+    <string name="inffa">Invoice data:</string>
+    <string name="fechaf">Date:</string>
+    <string name="nf">Invoice number:</string>
+    <string name="descripf">Description:</string>
+    <string name="infemf">Company information:</string>
+    <string name="infclif">Customer information:</string>
+    <string name="prof">Products:</string>
+    <string name="totalf">Total:</string>
+    <string name="ivaf">VAT:</string>
+    <string name="totalivaf">Total with VAT:</string>
+
+    <!-- EditarFactura -->
+    <string name="remof">Modified record</string>
+    <string name="mofac">Error modifying invoice</string>
+    <string name="llenarfac">You must fill out the fields</string>
+
+    <!-- VerFactura -->
+    <string name="segurof">Are you sure you want to delete the invoice?</string>
+    <string name="segurosif">YES</string>
+    <string name="seguronof">NO</string>
+
+    <!-- NuevoPresupuesto -->
+    <string name="guardadop">Saved budget</string>
+    <string name="errorp">Error saving</string>
+    <string name="preciop">Price</string>
+    <string name="cantidadp">Amount</string>
+    <string name="codigofp">Code:</string>
+    <string name="nombrefp">Name:</string>
+    <string name="preciofp">Price:</string>
+    <string name="cantidadfp">Units:</string>
+    <string name="subtotalp">Amount:</string>
+    <string name="errorp1">Could not obtain user or customer information</string>
+    <string name="enviarcorreop">Sending mail</string>
+    <string name="nohayclip">There are no clients in the mail</string>
+    <string name="datosp">Budget data</string>
+    <string name="infpre">Budget information:</string>
+    <string name="fechap">Date:</string>
+    <string name="np">Budget number:</string>
+    <string name="descripp">Description:</string>
+    <string name="infemp">Company information:</string>
+    <string name="infclip">Customer information:</string>
+    <string name="prop">Products:</string>
+    <string name="totalp">Total:</string>
+    <string name="ivap">VAT:</string>
+    <string name="totalivap">Total with VAT:</string>
+
+    <!-- EditarPresupuesto -->
+    <string name="remop">Modified record</string>
+    <string name="mopre">Error when modifying budget</string>
+    <string name="llenarpre">You must fill out the fields</string>
+
+    <!-- VerPresupuesto -->
+    <string name="segurop">Are you sure you want to delete the budget?</string>
+    <string name="segurosip">YES</string>
+    <string name="seguronop">NO</string>
 
 </resources>

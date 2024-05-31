@@ -132,7 +132,7 @@ public class DBInventario extends DBHelper {
         return correcto;
     }
 
-    //Obtener nombres
+    //OBTENER NOMBRES DEL INVENTARIO
     public ArrayList<String> obtenerNombresInventario() {
         ArrayList<String> listaNombres = new ArrayList<>();
         Cursor cursorInventario = null;
@@ -154,12 +154,12 @@ public class DBInventario extends DBHelper {
         return listaNombres;
     }
 
+    //OBTENER INVENTARIO POR NOMBRE
     public LInventario obtenerInventarioPorNombre(String nombreInventario) {
         LInventario inventario = null;
         Cursor cursorInventario = null;
         try (DBHelper dbhelper = new DBHelper(context)){
             SQLiteDatabase db = dbhelper.getWritableDatabase();
-            // Consulta para obtener el inventario por su nombre
             cursorInventario = db.rawQuery("SELECT * FROM " + TABLE_INVENTARIO + " WHERE nombre = ?", new String[]{nombreInventario});
             if (cursorInventario.moveToFirst()) {
                 inventario = new LInventario();

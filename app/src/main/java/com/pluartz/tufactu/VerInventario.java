@@ -73,13 +73,16 @@ public class VerInventario extends AppCompatActivity {
 
         //BORRAR INVENTARIO
         fab_borrar.setOnClickListener(v -> {
+            String seguroi = getString(R.string.seguroi);
+            String segurosii = getString(R.string.segurosii);
+            String seguronoi = getString(R.string.seguronoi);
             AlertDialog.Builder builder = new AlertDialog.Builder(VerInventario.this);
-            builder.setMessage("¿Seguro que quiere eliminar el producto?").setPositiveButton("SI", (dialog, which) -> {
+            builder.setMessage(seguroi).setPositiveButton(segurosii, (dialog, which) -> {
                 if (dbInventario.eliminarInventario(id)) {
                     finish();
                     Volver();
                 }
-            }).setNegativeButton("NO", (dialog, which) -> {
+            }).setNegativeButton(seguronoi, (dialog, which) -> {
             }).show();
         });
 

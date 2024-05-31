@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.SearchEvent;
 import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,6 +18,7 @@ import com.pluartz.tufactu.entidades.LClientes;
 
 import java.util.ArrayList;
 
+//AGREGAR Y MOSTRAR CLIENTES
 public class Clientes extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     SearchView buscar;
@@ -40,11 +40,13 @@ public class Clientes extends AppCompatActivity implements SearchView.OnQueryTex
         adapterc = new ListaClientesAdapter(dbClientes.mostrarClientes());
         listaClientes.setAdapter(adapterc);
 
+        //AGREGAR CLIENTES
         FloatingActionButton fab_anadir = findViewById(R.id.fab_masc);
         fab_anadir.setOnClickListener(v -> startActivity(new Intent(Clientes.this, NuevoCliente.class)));
 
         buscar.setOnQueryTextListener(this);
 
+        //MENU DE ABAJO
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_person_add);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

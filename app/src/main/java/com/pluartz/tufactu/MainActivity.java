@@ -13,14 +13,13 @@ import android.widget.Toast;
 
 import com.pluartz.tufactu.db.DBUsuario;
 
-//Inicio sesion de la aplicación
+//INICIO SESION Y DE LA APLICACION
 public class MainActivity extends AppCompatActivity {
 
     private EditText et_dni, et_contrasena;
     private CheckBox check_recordar;
     private SharedPreferences sharedPreferences;
 
-    //Inicio de sesion
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Button but_sesion = findViewById(R.id.but_iniciar_sesion);
         Button but_registro = findViewById(R.id.but_registro);
 
-        //Recordamos el dni que lo usaremos mas adelante
         sharedPreferences = getSharedPreferences("datos_login", Context.MODE_PRIVATE);
 
         boolean recordar = sharedPreferences.getBoolean("recordar", false);
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //Metodo para iniciar sesion
+    //INICIAR SESION
     private void iniciarSesion(String dni, String contrasena) {
         try (DBUsuario dbUsuario = new DBUsuario(this)) {
             if (dbUsuario.verificarCredenciales(dni, contrasena)) {
@@ -84,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(facturas);
                 finish();
             } else {
-                Toast.makeText(MainActivity.this, "DNI o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                String mensage = getString(R.string.incorrecto);
+                Toast.makeText(MainActivity.this, mensage, Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
             e.printStackTrace();

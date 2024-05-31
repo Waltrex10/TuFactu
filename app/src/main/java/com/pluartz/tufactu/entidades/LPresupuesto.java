@@ -1,6 +1,5 @@
 package com.pluartz.tufactu.entidades;
 
-import com.pluartz.tufactu.Clientes;
 import com.pluartz.tufactu.Presupuestos;
 
 public class LPresupuesto  extends Presupuestos {

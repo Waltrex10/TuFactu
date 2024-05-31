@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.pluartz.tufactu.entidades.LFactura;
-import com.pluartz.tufactu.entidades.LInventario;
 
 import java.util.ArrayList;
 

@@ -12,13 +12,13 @@ import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.pluartz.tufactu.adaptadores.ListaClientesAdapter;
 import com.pluartz.tufactu.adaptadores.ListaPresupuestoAdapter;
 import com.pluartz.tufactu.db.DBPresupuesto;
 import com.pluartz.tufactu.entidades.LPresupuesto;
 
 import java.util.ArrayList;
 
+//AGREGAR Y MOSTRAR PRESUPUESTO
 public class Presupuestos extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     SearchView buscar;
@@ -40,11 +40,13 @@ public class Presupuestos extends AppCompatActivity implements SearchView.OnQuer
         adapterp = new ListaPresupuestoAdapter(dbPresupuesto.mostrarPresupuesto());
         listaPresupuestos.setAdapter(adapterp);
 
+        //AGREGAR PRESUPUESTO
         FloatingActionButton fab_anadir = findViewById(R.id.fab_masp);
         fab_anadir.setOnClickListener(v -> startActivity(new Intent(Presupuestos.this, NuevoPresupuesto.class)));
 
         buscar.setOnQueryTextListener(this);
 
+        //MENU DE ABAJO
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_request_quote);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

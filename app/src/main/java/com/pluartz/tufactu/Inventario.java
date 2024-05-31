@@ -12,13 +12,13 @@ import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.pluartz.tufactu.adaptadores.ListaClientesAdapter;
 import com.pluartz.tufactu.adaptadores.ListaInventarioAdapter;
 import com.pluartz.tufactu.db.DBInventario;
 import com.pluartz.tufactu.entidades.LInventario;
 
 import java.util.ArrayList;
 
+//AGREGAR Y MOSTRAR INVENTARIO
 public class Inventario extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     SearchView buscar;
@@ -40,11 +40,13 @@ public class Inventario extends AppCompatActivity implements SearchView.OnQueryT
             adapteri = new ListaInventarioAdapter(dbInventario.mostrarInventario());
             listaInventario.setAdapter(adapteri);
 
+            //AGREGAR INVENTARIO
             FloatingActionButton fab_anadir = findViewById(R.id.fab_masi);
             fab_anadir.setOnClickListener(v -> startActivity(new Intent(Inventario.this, NuevoInventario.class)));
 
             buscar.setOnQueryTextListener(this);
 
+            //MENU INFERIOR
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
             bottomNavigationView.setSelectedItemId(R.id.navigation_inventory);
             bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
