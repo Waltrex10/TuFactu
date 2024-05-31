@@ -63,6 +63,7 @@ public class VerFactura extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, dniList);
         adapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerDni.setAdapter(adapter);
+        spinnerDni.setEnabled(false);
 
         if (factura != null){
             et_numero.setText(factura.getNumero());

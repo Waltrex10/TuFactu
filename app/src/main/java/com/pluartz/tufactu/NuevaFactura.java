@@ -77,6 +77,7 @@ public class NuevaFactura extends AppCompatActivity {
                 if (id > 0) {
                     String guardadof = getString(R.string.guardadof);
                     Toast.makeText(NuevaFactura.this, guardadof, Toast.LENGTH_SHORT).show();
+                    Volver();
                     enviaremail();
                 } else {
                     String errorf = getString(R.string.errorf);
@@ -282,6 +283,11 @@ public class NuevaFactura extends AppCompatActivity {
             String errorf1 = getString(R.string.errorf1);
             Toast.makeText(this, errorf1, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void Volver(){
+        Intent intent = new Intent(this, Facturas.class);
+        startActivity(intent);
     }
 
 }

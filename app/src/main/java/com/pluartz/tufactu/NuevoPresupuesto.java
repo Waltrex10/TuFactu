@@ -77,6 +77,7 @@ public class NuevoPresupuesto extends AppCompatActivity {
                 if (id > 0) {
                     String guardadop = getString(R.string.guardadop);
                     Toast.makeText(NuevoPresupuesto.this, guardadop, Toast.LENGTH_SHORT).show();
+                    Volver();
                     enviaremail();
                 } else {
                     String errorp = getString(R.string.errorp);
@@ -103,17 +104,26 @@ public class NuevoPresupuesto extends AppCompatActivity {
         inventoryItemLayout.setOrientation(LinearLayout.HORIZONTAL);
 
         Spinner spinnerInventario = new Spinner(this);
+        LinearLayout.LayoutParams spinnerParams = new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+        spinnerInventario.setLayoutParams(spinnerParams);
         ArrayAdapter<String> adapterInventario = new ArrayAdapter<>(this, R.layout.spinner_item, inventarioList);
         adapterInventario.setDropDownViewResource(R.layout.spinner_item);
         spinnerInventario.setAdapter(adapterInventario);
 
         EditText etPrecio = new EditText(this);
+        LinearLayout.LayoutParams precioParams = new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+        etPrecio.setLayoutParams(precioParams);
         String preciop = getString(R.string.preciop);
         etPrecio.setHint(preciop);
         etPrecio.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         etPrecio.setEnabled(false);
 
         EditText etCantidad = new EditText(this);
+        LinearLayout.LayoutParams cantidadParams = new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+        etCantidad.setLayoutParams(cantidadParams);
         String cantidadp = getString(R.string.cantidadp);
         etCantidad.setHint(cantidadp);
         etCantidad.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -275,6 +285,11 @@ public class NuevoPresupuesto extends AppCompatActivity {
             String errorp1 = getString(R.string.errorp1);
             Toast.makeText(this, errorp1, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void Volver(){
+        Intent intent = new Intent(this, Presupuestos.class);
+        startActivity(intent);
     }
 
 }

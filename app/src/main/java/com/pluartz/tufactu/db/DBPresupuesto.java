@@ -97,7 +97,7 @@ public class DBPresupuesto extends DBHelper {
         DBHelper dbhelper = new DBHelper(context);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         try {
-            db.execSQL("UPDATE " + TABLE_PRESUPUESTO + " SET numero = '"+numero+"', fecha = '"+fecha+"', descripcion = '"+descripcion+"' WHERE id='" + id + "'");
+            db.execSQL("UPDATE " + TABLE_PRESUPUESTO + " SET numero = '"+numero+"', fecha = '"+fecha+"', descripcion = '"+descripcion+"', dnicliente = '"+dnicliente+"'  WHERE id='" + id + "'");
             correcto = true;
         } catch (Exception ex) {
             ex.printStackTrace();
